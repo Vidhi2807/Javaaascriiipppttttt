@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zepto Header Clone</title>
+    </head>
+    <style>
+:root {
+    --zepto-purple: #7b1fa2; 
+    --active-purple: #a55eea; 
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+}
+
+/* Basic Reset and Font */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* --- 1. Top Header Row --- */
+.header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Optional: Constrain the content width */
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--zepto-purple);
+    margin-right: 15px;
+}
+
+.location-select {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    margin-left: 4px;
+    color: var(--light-text);
+}
+
+.search-bar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Limit search bar width */
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow like in the image */
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding-left: 10px;
+    color: var(--light-text);
+}
+
+.search-icon {
+    font-size: 16px;
+    color: var(--light-text);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.user-item {
+    margin-left: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.user-icon, .cart-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+    color: var(--light-text);
+}
+
+/* --- 2. Category Navigation Bar --- */
+.category-nav {
+    background-color: var(--bg-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative; /* To position the scroll arrows */
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow-x: hidden; /* Hide the natural scrollbar */
+    white-space: nowrap; /* Keep items in a single line */
+}
+
+.category-item {
+    font-weight: 500;
+    padding-bottom: 10px; /* Space for the underline */
+    cursor: pointer;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.category-icon {
+    font-size: 16px;
+    margin-right: 5px;
+    color: var(--light-text);
+}
+
+.category-item.active {
+    color: var(--active-purple);
+    font-weight: 700;
+    position: relative;
+}
+
+.category-item.active .category-icon {
+    color: var(--active-purple);
+}
+
+/* The purple underline effect */
+.category-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Adjust to sit exactly on the border */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--active-purple);
+    border-radius: 2px;
+}
+
+/* Scroll Arrows (for visual representation of the image) */
+.scroll-arrows {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Make arrows non-interactive in this example */
+}
+
+.arrow {
+    background: var(--bg-white);
+    padding: 10px;
+    font-size: 14px;
+    color: var(--light-text);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.left {
+    left: 0;
+    margin-left: 0;
+}
+
+.right {
+    right: 0;
+    margin-right: 0;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+.image2{
+    display: flex;
+    justify-content: center;
+    margin-top :12px;
+}
+/* Variables for easy color adjustments */
+:root {
+    --primary-green: #388e3c;
+    --primary-red: #d32f2f;
+    --zepto-purple: #9c27b0;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+}
+
+/* Basic Setup */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-white);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- 1. Category Icons Row --- */
+.category-icon-row {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.category-icons-list {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px;
+    padding: 10px 0;
+    /* Optional: Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.category-icons-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+
+.category-card {
+    flex: 0 0 auto; /* Do not grow, do not shrink, fixed width */
+    width: 80px; /* Approximate card width */
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-image-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #fce4ec; /* Light pink background for placeholder */
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    overflow: hidden;
+    /* In a real scenario, this would hold the <img> tag */
+}
+
+.category-name {
+    font-size: 12px;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* Navigation Arrow Styling */
+.arrow-overlay {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.right {
+    right: 0;
+}
+
+/* --- Section Header --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 15px 0;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.see-all {
+    color: var(--zepto-purple);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* --- 3. Product Listing Grid --- */
+.product-listing-slider {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling for the product list */
+    gap: 15px;
+    padding-bottom: 20px;
+    /* Optional: Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.product-listing-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    flex: 0 0 auto;
+    width: 150px; /* Approximate width of one product card */
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    position: relative;
+}
+
+.discount-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f7a0b3; /* Light red/pink badge color */
+    color: var(--primary-red);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 8px 0 8px 0;
+    z-index: 5;
+}
+
+.product-image-container {
+    height: 120px; /* Fixed height for image area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+    /* Placeholder background to mimic image presence */
+    background-color: #f9f9f9; 
+}
+
+.add-button {
+    position: absolute;
+    bottom: -15px; /* Position below the image */
+    right: 5px;
+    background-color: var(--bg-white);
+    color: var(--zepto-purple);
+    border: 1px solid var(--zepto-purple);
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    padding-top: 15px; /* Space for the floating ADD button */
+    text-align: left;
+}
+
+/* Variables for easy color adjustments */
+:root {
+    --primary-green: #388e3c;
+    --primary-red: #d32f2f;
+    --zepto-purple: #9c27b0;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+    --discount-green: #008900; /* Darker green for discount text */
+}
+
+/* Basic Setup */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-white);
+    padding: 20px; /* Add some padding around the whole shelf */
+}
+
+/* --- Product Listing Slider (The horizontal shelf) --- */
+.product-listing-slider {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px;
+    padding-bottom: 20px;
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.product-listing-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.product-card {
+    flex: 0 0 auto;
+    width: 150px; /* Fixed width for consistent card size */
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle lift */
+}
+
+/* Product Image Area */
+.product-image-container {
+    height: 140px; /* Fixed height for image area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+    /* Placeholder background to mimic image presence */
+    background-color: #f9f9f9; 
+    border-radius: 6px;
+    /* In a real scenario, this would hold the <img> tag, centered */
+}
+
+.add-button {
+    position: absolute;
+    bottom: -15px; /* Position slightly below the image/container */
+    right: 5px;
+    background-color: var(--bg-white);
+    color: var(--zepto-purple);
+    border: 1px solid var(--zepto-purple);
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+/* Product Details */
+.product-details {
+    padding-top: 15px; /* Space for the floating ADD button */
+    text-align: left;
+}
+
+/* Price and Discount Styling */
+.prices {
+    margin: 0 0 2px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.current-price {
+    font-size: 16px;
+    color: var(--discount-green); /* Price is green in the image */
+    margin-right: 5px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: var(--light-text);
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.discount-percent {
+    color: var(--discount-green); /* Discount text is also green */
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+}
+
+.name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    height: 30px; /* Fixed height for product name (2 lines) */
+    overflow: hidden;
+    line-height: 1.2;
+    margin: 0 0 5px 0;
+}
+
+.size {
+    font-size: 12px;
+    color: var(--light-text);
+    margin: 0 0 5px 0;
+}
+
+/* Tag/Attribute Styling */
+.tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.tag.blue { /* Stain Removal */
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.tag.green { /* Fabric Protect, Super Saver Pack */
+    background-color: #e8f5e9;
+    color: var(--primary-green);
+}
+
+.tag.mint { /* Lavinder & Vanilla (approximated) */
+    background-color: #e0f2f1;
+    color: #009688;
+}
+
+
+/* Rating */
+.rating {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light-text);
+    margin: 0;
+}
+
+.review-count {
+    font-weight: 400;
+    color: #999;
+}
+/* Variables for easy color adjustments */
+:root {
+    --primary-green: #388e3c;
+    --zepto-purple: #9c27b0;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+    --discount-green: #008900;
+    --sold-out-overlay: rgba(255, 255, 255, 0.7); /* Light transparent overlay */
+    --sold-out-badge: #d32f2f; /* Red-ish color for "Sold out" text */
+    --notify-button-color: #f7a0b3; /* Pink for notify button */
+}
+
+/* Basic Setup */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-white);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Section Header --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 15px 0;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.see-all {
+    color: var(--zepto-purple);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* --- Product Listing Slider (The horizontal shelf) --- */
+.product-listing-slider {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px;
+    padding-bottom: 20px;
+    position: relative; /* For arrow positioning */
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.product-listing-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+/* --- Product Card Base --- */
+.product-card {
+    flex: 0 0 auto;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    position: relative;
+    transition: opacity 0.3s;
+}
+
+/* Product Image Area */
+.product-image-container {
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: #f9f9f9; 
+    border-radius: 6px;
+}
+
+/* ADD Button (Available products) */
+.add-button {
+    position: absolute;
+    bottom: -15px;
+    right: 5px;
+    background-color: var(--bg-white);
+    color: var(--zepto-purple);
+    border: 1px solid var(--zepto-purple);
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* NOTIFY Button (Sold out products) */
+.notify-button {
+    position: absolute;
+    bottom: -15px;
+    right: 5px;
+    background-color: var(--notify-button-color);
+    color: var(--bg-white);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sold Out State Styling --- */
+.product-card.sold-out {
+    opacity: 0.6; /* Gray out the card */
+    pointer-events: none; /* Make card contents unclickable */
+}
+
+.sold-out-overlay {
+    position: absolute;
+    top: 5px; /* Adjust to sit at the top of the image container */
+    left: 10px;
+    background-color: var(--sold-out-badge);
+    color: var(--bg-white);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    z-index: 5;
+    transform: rotate(-10deg); /* Tilt the badge slightly */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Product Details Styling --- */
+.product-details {
+    padding-top: 15px;
+    text-align: left;
+}
+
+.prices {
+    margin: 0 0 2px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.current-price {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-right: 5px;
+    /* Create the green background badge */
+    background-color: var(--discount-green);
+    color: var(--bg-white);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: var(--light-text);
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.discount-percent {
+    color: var(--discount-green);
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+}
+
+.name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    height: 30px;
+    overflow: hidden;
+    line-height: 1.2;
+    margin: 0 0 5px 0;
+}
+
+.size {
+    font-size: 12px;
+    color: var(--light-text);
+    margin: 0 0 5px 0;
+}
+
+.rating {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light-text);
+    margin: 0;
+}
+
+.rating::before {
+    content: "⭐"; /* Star emoji for rating */
+    margin-right: 3px;
+    color: var(--discount-green);
+}
+
+.review-count {
+    font-weight: 400;
+    color: #999;
+}
+
+/* Variables for easy color adjustments */
+:root {
+    --primary-green: #388e3c;
+    --zepto-purple: #9c27b0;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+    --discount-green: #008900;
+    --banner-light-purple: #f3ebf9;
+    --banner-dark-purple: #4a148c;
+    --banner-pink: #e81d77;
+    --tag-blue: #1976d2;
+    --tag-green-bg: #e8f5e9;
+    --tag-blue-bg: #e3f2fd;
+}
+
+/* --- Global & Reset --- */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7; /* Light grey background for the overall page */
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 1. Header and Navigation Bar --- */
+.header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--banner-dark-purple);
+    margin-right: 15px;
+}
+.location-select {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    padding-right: 15px;
+}
+.search-bar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding-left: 10px;
+    color: var(--light-text);
+}
+.user-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.user-item {
+    margin-left: 20px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+.user-icon, .cart-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+    color: var(--light-text);
+}
+.category-nav {
+    background-color: var(--bg-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    padding: 0 20px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+.category-item {
+    font-weight: 500;
+    padding-bottom: 10px;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+}
+.category-item.active {
+    color: var(--zepto-purple);
+    font-weight: 700;
+    position: relative;
+}
+.category-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--zepto-purple);
+    border-radius: 2px;
+}
+.category-icon {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* --- 2. Promotional Banners --- */
+.banner-promo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    background-color: var(--banner-light-purple);
+}
+.banner-text h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+}
+.fee-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+}
+.green-circle {
+    background-color: var(--discount-green);
+    color: var(--bg-white);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 30px;
+    display: inline-block;
+    line-height: 1;
+    margin-right: 5px;
+    font-weight: 900;
+}
+.order-button {
+    background-color: var(--banner-pink);
+    color: var(--bg-white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.banner-image-placeholder {
+    width: 40%;
+    height: 150px;
+}
+.banner-fees-experience {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--banner-light-purple);
+    border-radius: 12px;
+}
+.zepto-experience-header {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--banner-dark-purple);
+    margin-bottom: 20px;
+}
+.experience-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.card {
+    flex: 1;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+}
+.zero-fees-card {
+    background-color: var(--banner-light-purple);
+}
+.lowest-prices-card {
+    background-color: #f8e5ff;
+}
+.fee-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    text-align: left;
+    display: inline-block;
+}
+.check-icon {
+    font-weight: 900;
+    color: var(--primary-green);
+    margin-right: 5px;
+}
+
+/* --- 3. Top Category Icons Row --- */
+.category-icon-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.category-icons-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.category-icons-list::-webkit-scrollbar {
+    display: none;
+}
+.category-card {
+    flex: 0 0 auto;
+    width: 80px;
+    text-align: center;
+}
+.category-image-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #fce4ec;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+}
+.category-name {
+    font-size: 12px;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* --- 4 & 5. Product Listing Shelves --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+.product-shelf {
+    background-color: var(--bg-white);
+    padding: 20px 0;
+}
+.product-listing-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.product-card {
+    flex: 0 0 auto;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.product-image-container {
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+.add-button {
+    position: absolute;
+    bottom: -15px;
+    right: 5px;
+    background-color: var(--bg-white);
+    color: var(--banner-pink);
+    border: 1px solid var(--banner-pink);
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.product-details {
+    padding-top: 15px;
+    text-align: left;
+}
+.prices {
+    margin: 0 0 2px 0;
+    display: flex;
+    align-items: center;
+}
+.current-price {
+    font-size: 16px;
+    background-color: var(--discount-green);
+    color: var(--bg-white);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+.original-price {
+    text-decoration: line-through;
+    color: var(--light-text);
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 5px;
+}
+.discount-percent {
+    color: var(--discount-green);
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+}
+.name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    height: 30px;
+    overflow: hidden;
+    line-height: 1.2;
+    margin: 0 0 5px 0;
+}
+.size {
+    font-size: 12px;
+    color: var(--light-text);
+    margin: 0 0 5px 0;
+}
+.rating {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--light-text);
+    margin: 0;
+}
+.rating::before {
+    content: "⭐";
+    margin-right: 3px;
+    color: var(--discount-green);
+}
+.review-count {
+    font-weight: 400;
+    color: #999;
+}
+.tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+.tag.blue {
+    background-color: var(--tag-blue-bg);
+    color: var(--tag-blue);
+}
+.tag.green-tag {
+    background-color: var(--tag-green-bg);
+    color: var(--primary-green);
+}
+
+.info-section {
+    background-color: var(--bg-white);
+    padding: 50px 0 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+.info-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.about-text-block {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.main-heading {
+    font-size: 40px;
+    font-weight: 900;
+    color: #4a4a4a;
+    margin: 0 0 10px 0;
+}
+.sub-heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--fssai-text-color);
+    margin: 0 0 20px 0;
+}
+.zepto-team-text {
+    color: var(--zepto-purple);
+    font-weight: 700;
+}
+.fssai-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--fssai-text-color);
+}
+.lic-number {
+    margin-left: 10px;
+}
+.how-it-works-block {
+    text-align: center;
+    margin-top: 30px;
+}
+.how-it-works-block h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.step-card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+.icon-placeholder {
+    height: 80px;
+    width: 80px;
+    background-color: var(--banner-light-purple);
+    border-radius: 12px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: var(--zepto-purple);
+}
+.step-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+}
+.step-card p {
+    font-size: 14px;
+    color: var(--light-text);
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+.mega-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 0 20px;
+}
+.mega-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.popular-searches-block {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.popular-searches-block h4, .categories-links-block h4 {
+    color: var(--footer-heading);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.search-group {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+.search-group strong {
+    color: var(--footer-heading);
+    font-weight: 700;
+    margin-right: 5px;
+}
+.categories-links-block {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.categories-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.categories-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+.categories-columns li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.links-download-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer-logo-social {
+    width: 200px;
+}
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--zepto-purple);
+    display: block;
+    margin-bottom: 15px;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.social-icon {
+    font-size: 20px;
+    color: var(--footer-heading);
+}
+.fssai-lic-text {
+    font-size: 12px;
+}
+.footer-links-columns {
+    display: flex;
+    gap: 60px;
+}
+.footer-links-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links-columns li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.download-app-section h4 {
+    color: var(--footer-heading);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.app-store-button {
+    background-color: var(--footer-heading);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+    </style>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <span class="logo">zepto</span>
+                <div class="location-select">
+                    <span class="select-text">Select Location</span>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+            </div>
+
+            <div class="search-bar-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search for &quot;kurkure&quot;">
+                </div>
+            </div>
+
+            <div class="user-actions">
+                <div class="user-item">
+                    <span class="user-icon">👤</span>
+                    <span>Login</span>
+                </div>
+                <div class="user-item cart">
+                    <span class="cart-icon">🛒</span>
+                    <span>Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <ul class="category-list">      
+            <li class="category-item active">
+                <span class="category-icon">🛍️</span> All
+            </li>
+            <li class="category-item">
+                <span class="category-icon">☕</span> <a style= "text-decoration: none;" href="searchzep.html">Cafe</a>
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🏠</span> Home
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🧸</span> Toys
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🌿</span> Fresh
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🔌</span> Electronics
+            </li>
+            <li class="category-item">
+                <span class="category-icon">📱</span> Mobiles
+            </li>
+            <li class="category-item">
+                <span class="category-icon">💄</span> Beauty
+            </li>
+            <li class="category-item">
+                <span class="category-icon">👗</span> Fashion
+            </li>
+        </ul>
+        <div class="scroll-arrows">
+            <span class="arrow left">◀</span>
+        </div>
+    </nav>
+
+
+    <div class="image">
+        <img src="https://cdn.zeptonow.com/production/tr:w-1280,ar-5120-1040,pr-true,f-auto,q-80/inventory/banner/1a6e9b9d-73b4-4b6a-a043-f2d2f309b54a.png" alt="">
+    </div>
+
+  <div class="image2">
+    <img src="https://cdn.zeptonow.com/production/tr:w-1280,ar-5120-1161,pr-true,f-auto,q-80/inventory/banner/c694446f-51db-40dc-9395-c779a7326018.png" alt="">
+  </div>
+
+    <main class="content-wrapper">
+
+        <section class="category-icon-row">
+            <div class="category-icons-list">
+                <div class="category-card">
+                        <img src="https://cdn.zeptonow.com/production/cms/category/38047553-95f3-47c6-a1ff-4794e1227d3a.png" alt=""height="105" width="75">
+                    <p class="category-name">Fruits & Vegetable</p>
+                </div>
+
+                <div class="category-card">
+                        <img src="https://cdn.zeptonow.com/production/cms/category/474e6e58-1894-4378-86f1-168cc7266d1a.png" alt="" height="105" width="75">
+                    <p class="category-name">Dairy, Bread & Eggs</p>
+                </div>
+                
+                <div class="category-card">
+                 <img src="https://cdn.zeptonow.com/production/cms/category/dc4a299d-521f-4a64-8205-c5ba8e1d13e3.png" alt=""height="105" width="75">
+                    <p class="category-name">Atta, Rice, Oil & Dals</p>
+                </div>
+                
+                <div class="category-card">
+                <img src="https://cdn.zeptonow.com/production/cms/category/1237afd6-40bf-4942-a266-25f23025e86c.png" alt=""height="105" width="75">
+                    <p class="category-name">Meat, Fish & Eggs</p>
+                </div>
+
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/8d4d3977-5197-49d9-9867-8a670524e48b.png" alt=""height="105" width="75">
+                    <p class="category-name">Masala & Dry Fruits</p>
+                </div>
+
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/ab241d87-da5b-4830-b38f-1a6cd30d0d41.png" alt=""height="105" width="75">
+                    <p class="category-name">Breakfast & Sauces</p>
+                </div>
+
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/3b0ce887-3b38-4450-b7da-9da0ad8b799d.png" alt=""height="105" width="75">
+                    <p class="category-name">Packaged Food</p>
+                </div>
+                
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/031c2a24-d40f-4272-8c71-8a566252495e.png" alt=""height="105" width="75">
+                    <p class="category-name">Zepto Cafe</p>
+                </div>
+
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/f078a8dc-a9b6-41a6-9c6f-721d4892b8ee.png" alt=""height="105" width="75">
+                    <p class="category-name">Tea, Coffee & More</p>
+                </div>
+                
+                <div class="category-card">
+                   <img src="https://cdn.zeptonow.com/production/cms/category/db346f5e-644f-426a-85af-92d707e086ac.png" alt=""height="105" width="75">
+                    <p class="category-name">Ice Creams & More</p>
+                </div>
+                
+                <div class="category-card last-card">
+                    <img src="https://cdn.zeptonow.com/production/cms/category/366e5b7d-2028-4935-b9f1-75bfa085c3d7.png" alt=""height="105" width="75">
+                    <p class="category-name">Frozen Food</p>
+                </div>
+                
+                <div class="category-card last-card">
+                    <img src="https://cdn.zeptonow.com/production/cms/category/ec7b14c6-2640-4165-b3ae-68c09a249ae0.png" alt=""height="105" width="75">
+                    <p class="category-name">Sweet Cravings</p>
+                </div>
+
+                 <div class="category-card last-card">
+                    <img src="https://cdn.zeptonow.com/production/cms/category/59d2c0cc-e776-407c-9142-7e69898d9eab.png" alt=""height="105" width="75">
+                    <p class="category-name"> Cold Drinks & Juices</p>
+                </div>
+
+                 <div class="category-card last-card">
+                  <img src="https://cdn.zeptonow.com/production/cms/category/90b2faee-1461-465a-a8c6-8c84716dd7dc.png" alt=""height="105" width="75"> 
+                   <p class="category-name">Munchies</p>
+                </div>
+
+                 <div class="category-card last-card">
+                    <img src="https://cdn.zeptonow.com/production/cms/category/9b88fff5-73f5-46fd-999f-1622db4203d7.png" alt=""height="105" width="75">
+                    <p class="category-name">Biscuits & Cookies</p>
+                </div>
+
+                 <div class="category-card last-card">
+                    <img src="https://cdn.zeptonow.com/production/cms/category/109212ee-c7a7-46b5-98a7-4d057ba8f1d1.png" alt=""height="105" width="75">
+                    <p class="category-name">Fashion & Lifestyle</p>
+                </div>
+
+                <div class="arrow-overlay right">▶</div>
+
+            </div>
+        </section>
+        
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Laundry Care</h2>
+            <a href="#" class="see-all">See All ></a>
+        </div>
+
+    <section class="product-listing-slider">
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2000-2000,pr-true,f-auto,q-80/cms/product_variant/c2a4cd3d-5540-4b2a-852e-234e14ce581c.jpeg" alt="" height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹219</span>
+                    <span class="original-price">₹472</span>
+                </p>
+                <p class="discount-percent">₹253 OFF</p>
+                <p class="name">Morelight Extra Power Detergent Powder</p>
+                <p class="size">1 pack (4 Kg)</p>
+                <p class="tag green">Fabric Protect</p>
+                <p class="rating">⭐ 4.7 <span class="review-count">(9.0k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/30caddaf-d387-442b-a6a2-e85a92d7d028.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹237</span>
+                    <span class="original-price">₹320</span>
+                </p>
+                <p class="discount-percent">₹83 OFF</p>
+                <p class="name">Tide Plus Lemon & Mint Detergent Powder</p>
+                <p class="size">1 pack (2 Kg)</p>
+                <p class="tag blue">Stain Removal</p>
+                <p class="rating">⭐ 4.8 <span class="review-count">(24.6k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2000-2000,pr-true,f-auto,q-80/cms/product_variant/59c065a9-d115-44fd-bd1c-a79df47b0086.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹254</span>
+                    <span class="original-price">₹319</span>
+                </p>
+                <p class="discount-percent">₹65 OFF</p>
+                <p class="name">Surf Excel Matic Top Load Detergent Liquid Refill | Tough Dried...</p>
+                <p class="size">1 pack (2 L)</p>
+                <p class="tag blue">Stain Removal</p>
+                <p class="rating">⭐ 4.7 <span class="review-count">(17.6k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2000-2000,pr-true,f-auto,q-80/cms/product_variant/1f43d2fe-67c5-4251-b353-54376f0f0851.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹287</span>
+                    <span class="original-price">₹364</span>
+                </p>
+                <p class="discount-percent">₹77 OFF</p>
+                <p class="name">Surf Excel Matic Front Load Detergent Liquid Refill | Tough Dried...</p>
+                <p class="size">1 pack (2 L)</p>
+                <p class="tag blue">Stain Removal</p>
+                <p class="rating">⭐ 4.7 <span class="review-count">(8.0k)</span></p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/9006d465-aa3d-4309-920a-9b95b973aabf.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹768</span>
+                    <span class="original-price">₹1115</span>
+                </p>
+                <p class="discount-percent">₹347 OFF</p>
+                <p class="name">Tide Plus Jasmine & Rose Detergent Powder</p>
+                <p class="size">1 pack (10 kg)</p>
+                <p class="tag blue">Stain Removal</p>
+                <p class="rating">⭐ 4.7 <span class="review-count">(10.7k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1600-1600,pr-true,f-auto,q-80/cms/product_variant/21a7e77d-7669-4c9d-842f-80d110591099.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹249</span>
+                    <span class="original-price">₹320</span>
+                </p>
+                <p class="discount-percent">₹71 OFF</p>
+                <p class="name">Godrej Genteel Matic Top Load Detergent Liquid Pouch</p>
+                <p class="size">1 pack (2 Kg)</p>
+                <p class="tag green">Super Saver Pack</p>
+                <p class="rating">⭐ 4.8 <span class="review-count">(12.6k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1080-1080,pr-true,f-auto,q-80/cms/product_variant/cae49217-d00a-4191-96af-3148760ad584.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹209</span>
+                    <span class="original-price">₹450</span>
+                </p>
+                <p class="discount-percent">₹241 OFF</p>
+                <p class="name">Beco Front Load Laundry Detergent Liquid Refill</p>
+                <p class="size">1 pack (2 L)</p>
+                <p class="tag mint">Lavinder & Vanilla</p>
+                <p class="rating">⭐ 4.6 <span class="review-count">(1.7k)</span></p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/ff5b2f72-edfd-4a50-ad54-26132376f0f8.jpeg" alt=""height="100" width="95">
+                <button class="add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <p class="prices">
+                    <span class="current-price">₹991</span>
+                    <span class="original-price">₹1399</span>
+                </p>
+                <p class="discount-percent">₹408 OFF</p>
+                <p class="name">Ariel Matic Top Load Detergent Powder | For Washing...</p>
+                <p class="size">6 kg + 500 ml</p>
+                <p class="tag blue">Stain Removal</p>
+                <p class="rating">⭐ 4.5 <span class="review-count">(2.0k)</span></p>
+            </div>
+        </div>
+        
+    </section>
+
+    <main class="content-wrapper">
+
+        <div class="section-header">
+            <h2>Household Cleaning</h2>
+            <a href="#" class="see-all">See All ></a>
+        </div>
+
+        <section class="product-listing-slider">
+            <div class="nav-arrow left-arrow">◀</div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-679-792,pr-true,f-auto,q-80/cms/product_variant/1a8f13cd-b5f5-4fa2-aab0-9f493bc6528b.jpg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹1353</span>
+                        <span class="original-price">₹1849</span>
+                    </p>
+                    <p class="discount-percent">₹496 OFF</p>
+                    <p class="name">Finish Ultimate Regular Dishwasher Tablets</p>
+                    <p class="size">1 pack (788.9 g)</p>
+                    <p class="rating">⭐ 4.1 <span class="review-count">(52)</span></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1100-1100,pr-true,f-auto,q-80/cms/product_variant/e24cbf08-b23e-4c4c-8009-1b55f91035e0.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹160</span>
+                        <span class="original-price">₹205</span>
+                    </p>
+                    <p class="discount-percent">₹45 OFF</p>
+                    <p class="name">Vim Lemon Dishwash Liquid Gel Refill Pouch</p>
+                    <p class="size">1 pack (900 ml)</p>
+                    <p class="rating">⭐ 4.8 <span class="review-count">(18.6k)</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card sold-out">
+                <div class="sold-out-overlay">Sold out</div>
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-50…_variant/b1cc4f70-9815-450e-a708-68bdecb19b28.jpg" alt=""height="100" width="95">
+                    <button class="notify-button">Notify</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹109</span>
+                        <span class="original-price">₹249</span>
+                    </p>
+                    <p class="discount-percent">₹140 OFF</p>
+                    <p class="name">Cleeavo Natural Kitchen Cleaner Spray Refill</p>
+                    <p class="size">1 pc (1 L)</p>
+                    <p class="rating">⭐ 4.5 <span class="review-count">(193)</span></p>
+                </div>
+            </div>
+                           <div class="product-card">
+
+                <div class="sold-out-overlay">Sold out</div>
+                <div class="product-image-container">
+                    <img src="	https://cdn.zeptonow.com/production/tr:w-403,ar-83…variant/ebfd360d-ad6b-4589-a82d-f364c8d172db.jpeg" alt=""height="100" width="95">
+                    <button class="notify-button">Notify</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹480</span>
+                        <span class="original-price">₹999</span>
+                    </p>
+                    <p class="discount-percent">₹519 OFF</p>
+                    <p class="name">Purela Glass Cleaner & Multi Surface Cleaner Spray</p>
+                    <p class="size">1 pc (5 L)</p>
+                    <p class="rating">⭐ 4.9 <span class="review-count">(55)</span></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3011-3011,pr-true,f-auto,q-80/cms/product_variant/7f1a2ab9-6857-40bc-8025-2f55f93ba256.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹228</span>
+                        <span class="original-price">₹299</span>
+                    </p>
+                    <p class="discount-percent">₹71 OFF</p>
+                    <p class="name">Kienzmo Chimney Cleaner and Kitchen Degreaser</p>
+                    <p class="size">1 pc (400 ml)</p>
+                    <p class="rating">⭐ 3.9 <span class="review-count">(211)</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/69bd51cb-598e-4514-bbb7-99c5ee1013d3.jpg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹480</span>
+                        <span class="original-price">₹999</span>
+                    </p>
+                    <p class="discount-percent">₹519 OFF</p>
+                    <p class="name">Purela Rose Floor Cleaner Liquids | Bathroom Surface...</p>
+                    <p class="size">1 pc (5 L)</p>
+                    <p class="rating">⭐ 3.9 <span class="review-count">(75)</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/604040e5-eefd-4a52-8e5d-b3e793e88b72.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹170</span>
+                        <span class="original-price">₹246</span>
+                    </p>
+                    <p class="discount-percent">₹76 OFF</p>
+                    <p class="name">Lizol Lavender Floor Cleaner Liquid</p>
+                    <p class="size">1 pc (1 L)</p>
+                    <p class="rating">⭐ 4.8 <span class="review-count">(3.7k)</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/c92baa58-183e-406f-8cd7-b9e4122b855e.jpeg" alt="" height="100" width="95">
+                    <button class="add-button">ADD</button>
+                </div>
+                <div class="product-details">
+                    <p class="prices">
+                        <span class="current-price green-badge">₹249</span>
+                        <span class="original-price">₹349</span>
+                    </p>
+                    <p class="discount-percent">₹100 OFF</p>
+                    <p class="name">Cif Perfect Finish Oven & Grill Kitchen Cleaning Spray | 100...</p>
+                    <p class="size">1 pc (435 ml)</p>
+                    <p class="rating">⭐ 4.5 <span class="review-count">(172)</span></p>
+                </div>
+            </div>
+            
+            <div class="nav-arrow right-arrow">▶</div>
+        </section>
+
+    </main>
+
+</body>
+</html>
+
+        <div class="section-header">
+            <h2>Spices & Seasonings</h2>
+            <a href="#" class="see-all">See All ></a>
+        </div>
+        <section class="product-listing-slider product-shelf">
+            <div class="product-card">
+                <div class="product-image-container"> 
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/3ebb8417-c226-45bc-8787-e2a83c86cd7b.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹59</span><span class="original-price">₹90</span></p>
+                    <p class="discount-percent">₹31 OFF</p>
+                    <p class="name">MTR Foods Spice Hing Powder</p>
+                    <p class="size">1 pc (50 g)</p>
+                    <p class="rating">⭐ 4.8 <span class="review-count">(5.5k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container"> 
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/01e6fe5c-2dc4-44ec-8e47-f7e367397421.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹29</span><span class="original-price">₹70</span></p>
+                    <p class="discount-percent">₹41 OFF</p>
+                    <p class="name">Daily Good Till - Sesame White</p>
+                    <p class="size">1 pack (100 g)</p>
+                    <p class="rating">⭐ 4.6 <span class="review-count">(14.6k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/44c7ca5d-278f-498b-8544-b60befa4c201.jpeg" alt=""height="100" width="95">
+                     <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹27</span><span class="original-price">₹35</span></p>
+                    <p class="discount-percent">₹8 OFF</p>
+                    <p class="name">Daily Good Mustard / Rai / Sarso Yellow</p>
+                    <p class="size">1 pack (100 g)</p>
+                    <p class="rating">⭐ 4.6 <span class="review-count">(4.0k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container"> 
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-600-600,pr-true,f-auto,q-80/inventory/product/73e1a541-de8a-4f75-971c-7bcee304edf8-11anaGdB6fxiVJhhgHDtfUfnTAjaF4gKa.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹24</span><span class="original-price">₹36</span></p>
+                    <p class="discount-percent">₹12 OFF</p>
+                    <p class="name">Aachi Masala Garam</p>
+                    <p class="size">1 pack (50 g)</p>
+                    <p class="rating">⭐ 4.7 <span class="review-count">(7.7k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/0d742f26-f99a-431f-9f8e-ffb6991af94f.jpeg" alt=""height="100" width="95">
+                     <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹21</span><span class="original-price">₹25</span></p>
+                    <p class="discount-percent">₹4 OFF</p>
+                    <p class="name">Everest - Ginger Garlic Paste</p>
+                    <p class="size">1 pack (100 g)</p>
+                    <p class="rating">⭐ 4.6 <span class="review-count">(17.0k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-600-600,pr-true,f-auto,q-80/inventory/product/cbb9375c-1d0e-4b7c-ac31-3bcf4ff84d31-1aU03ND1gwcXxvf7K1Z70xJo8ZF4Bh2Je.jpeg" alt=""height="100" width="95">
+                     <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹65</span><span class="original-price">₹76</span></p>
+                    <p class="discount-percent">₹11 OFF</p>
+                    <p class="name">Aachi Black Pepper Powder</p>
+                    <p class="size">1 pack (50 g)</p>
+                    <p class="rating">⭐ 4.7 <span class="review-count">(2.7k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container"> 
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/50d9357a-bb8f-426d-a707-d0a5f35f579f.jpeg" alt=""height="100" width="95">
+                    <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹48</span><span class="original-price">₹72</span></p>
+                    <p class="discount-percent">₹24 OFF</p>
+                    <p class="name">Aachi Masala Garam</p>
+                    <p class="size">1 pack (100 g)</p>
+                    <p class="rating">⭐ 4.7 <span class="review-count">(7.7k)</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/e57de15d-2023-48d8-a0de-efbe9f97b070.jpeg" alt="" height="100" width="95">
+                     <button class="add-button">ADD</button></div>
+                <div class="product-details">
+                    <p class="prices"><span class="current-price green-badge">₹26</span><span class="original-price">₹40</span></p>
+                    <p class="discount-percent">₹14 OFF</p>
+                    <p class="name">Catch Coriander Powder</p>
+                    <p class="size">1 pack (100 g)</p>
+                    <p class="rating">⭐ 4.7 <span class="review-count">(19.7k)</span></p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="info-section">
+        <div class="info-content-wrapper">
+            <div class="about-text-block">
+                <h2 class="main-heading">The place that fits all your needs</h2>
+                <p class="sub-heading">Crafted with love from <span class="zepto-team-text">Zepto Team ❤️</span></p>
+                <div class="fssai-block">
+                                        <span class="lic-number">LIC no - 11224999000872</span>
+                </div>
+            </div>
+
+            <div class="how-it-works-block">
+                <h3>How it Works</h3>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/place-order.svg" alt="">
+                        </div>
+                        <h4>Open the app</h4>
+                        <p>Choose from over 7000 products across groceries, fresh fruits & veggies, meat, pet care, beauty items & more</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/do-not-blink.svg" alt="">
+                        </div>
+                        <h4>Place an order</h4>
+                        <p>Add your favourite items to the cart & avail the best offers</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/enjoy.svg" alt="">
+                        </div>
+                        <h4>Get free delivery</h4>
+                        <p>Experience lightning-fast speed & get all your items delivered in 10 minutes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="mega-footer">
+        <div class="mega-footer-content">
+            <div class="popular-searches-block">
+                <h4>Popular Searches</h4>
+                <div class="search-group">
+                    <strong>Products:</strong> Avocado | Strawberry | Pomegranate | Beetroot | Ash gourd | Bottle gourd | Lady finger | Potato | Lemon | Dalchini | Fennel seeds | Blueberry | Papaya | Dragon fruit | Mushroom | Lettuce
+                </div>
+                <div class="search-group">
+                    <strong>Brands:</strong> Yakult | My Muse | Aashirvaad Atta | Too Yumm | Lays | Figaro Olive Oil | Nandini Milk | Amul | Mother Dairy Near Me | Fortune Oil | Superyqu | Durex Condoms | Ferns and Petals
+                </div>
+                <div class="search-group">
+                    <strong>Categories:</strong> Grocery | Cigarettes | Chips | Curd | Hukka flavour | Paan shop near me | Eggs price | Cheese slice | Fresh fruits | Fresh vegetables | Refined oil | Butter price | Paneer price
+                </div>
+            </div>
+
+            <div class="categories-links-block">
+                <h4>Categories</h4>
+                <div class="categories-columns">
+                    <ul>
+                        <li>Fruits & Vegetables</li>
+                        <li>Baby Food</li>
+                        <li>Breakfast & Sauces</li>
+                        <li>Cleaning Essentials</li>
+                        <li>Homegrown Brands</li>
+                    </ul>
+                    <ul>
+                        <li>Atta, Rice, Oil & Dals</li>
+                        <li>Dairy, Bread & Eggs</li>
+                        <li>Tea, Coffee & More</li>
+                        <li>Home Needs</li>
+                        <li>Paan Corner</li>
+                    </ul>
+                    <ul>
+                        <li>Masala & Dry Fruits</li>
+                        <li>Cold Drinks & Juices</li>
+                        <li>Biscuits</li>
+                        <li>Electricals & Accessories</li>
+                    </ul>
+                    <ul>
+                        <li>Sweet Cravings</li>
+                        <li>Munchies</li>
+                        <li>Makeup & Beauty</li>
+                        <li>Hygiene & Grooming</li>
+                    </ul>
+                    <ul>
+                        <li>Frozen Food & Ice Creams</li>
+                        <li>Meats, Fish & Eggs</li>
+                        <li>Bath & Body</li>
+                        <li>Health & Baby Care</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="links-download-block">
+                <div class="footer-logo-social">
+                    <span class="footer-logo">zepto</span>
+                    <p>© Zepto Marketplace Private Limited</p>
+                    <p class="fssai-lic-text">fssai lic no: 11224999000872</p>
+                </div>
+                <div class="footer-links-columns">
+                    <ul>
+                        <li>Home</li>
+                        <li>Delivery Areas</li>
+                        <li>Careers</li>
+                        <li>Customer Support</li>
+                        <li>Press</li>
+                        <li>Mojo - a Zepto Blog</li>
+                    </ul>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>Responsible Disclosure Policy</li>
+                        <li>Sell on Zepto</li>
+                        <li>Deliver with Zepto</li>
+                        <li>Franchise with Zepto</li>
+                    </ul>
+                </div>
+                <div class="download-app-section">
+                    <h4>Download App</h4>
+                    <button class="app-store-button"> Get it on play store</button>
+                    <button class="app-store-button"> Get it on app store</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

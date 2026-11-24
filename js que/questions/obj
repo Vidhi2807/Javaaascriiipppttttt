@@ -1,0 +1,8 @@
+var obj1 ={ name: "vidhi" ,age:"18"}
+var obj2 ={ name: "rishikesh" ,age:"98"}
+var obj3 ={ name: "arjun", age:"19"}
+
+console.log(obj1["name"],obj1["age"])
+
+
+

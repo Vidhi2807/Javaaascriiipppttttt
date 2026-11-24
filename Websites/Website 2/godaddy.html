@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined GoDaddy Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; /* Light background color */
+            margin: 0; /* Remove default body margin */
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto; /* Centers the container and adds vertical margin */
+            padding: 0 10px;
+        }
+
+        .header-bar {
+            display: flex; /* Enables flexbox layout */
+            justify-content: space-between; /* Pushes items to the far ends */
+            align-items: center; /* Vertically aligns items in the center */
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd; /* Added separator for clarity */
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 24px;
+            /* In a real scenario, you'd use a logo image/SVG here */
+            color: #212121;
+        }
+
+        .rating-section {
+            display: flex; /* Use flexbox to align the rating text and Trustpilot logo */
+            align-items: center;
+            gap: 10px; /* Space between the text and the logo */
+            font-size: 14px;
+        }
+        
+        .rating-text {
+            font-weight: 500;
+        }
+
+        .trustpilot-logo {
+            font-weight: bold;
+            font-size: 14px;
+            color: #00b67a; /* Trustpilot green, for visual representation */
+        }
+
+        /* 2. DOMAIN STATUS BOX STYLING */
+        .domain-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 13px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .domain-info h1 {
+            font-size: 30px;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+            color: #212121;
+        }
+
+        .domain-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .domain-button {
+            background-color: #212121;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .domain-button:hover {
+            background-color: #444;
+        }
+
+        .related-searches-title {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-right: 380px;
+            font-weight: normal;
+            
+        }
+
+        .search-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0px 150px;
+            
+        }
+
+        .search-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a237e;
+            color: white;
+            text-decoration: none;
+            padding: 18px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            background-image: linear-gradient(to bottom, #2b3990, #1a237e);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .search-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon {
+            font-size: 20px;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .text {
+            flex-grow: 1;
+        }
+
+        .arrow-icon {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .domain-box {
+                flex-direction: column;
+                align-items: flex-start;
+                
+            }
+            .domain-button {
+                width: 100%;
+                margin-top: 15px;
+            }
+        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white; 
+}
+
+.go-daddy-footer {
+    width: 100%;
+    padding: 20px 0; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #333; 
+}
+
+.copyright {
+    margin-bottom: 10px; 
+}
+
+.disclaimer {
+    margin: 0 auto; 
+    max-width: 900px; 
+    line-height: 1.5; 
+}
+
+.copyright a {
+    color: #0000EE; 
+    text-decoration: underline;
+    font-weight: normal;
+}
+    </style>
+</head>
+<body>
+    <header class="header-bar">
+        <div class="logo-section">
+            <span class="logo-text">GoDaddy</span>
+        </div>
+        <div class="rating-section">
+            <span class="rating-text">Excellent 4.5 out of 5</span>
+            <span class="trustpilot-logo">Trustpilot</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="domain-box">
+            <div class="domain-info">
+                <h1>go-digit.com</h1>
+                <p>is parked free, courtesy of GoDaddy.com.</p>
+            </div>
+            <button class="domain-button">Get This Domain</button>
+        </div>
+
+        <h3 class="related-searches-title">Related searches</h3>
+        <div class="search-links-container">
+            <a href="#" class="search-link">
+                <span class="icon">🔍</span>
+                <span class="text">Mobile Device Management Tool</span>
+                <span class="arrow-icon">❯</span>
+            </a>
+            <a href="#" class="search-link">
+                <span class="icon">🔍</span>
+                <span class="text">Addition Worksheets</span>
+                <span class="arrow-icon">❯</span>
+            </a>
+            <a href="#" class="search-link">
+                <span class="icon">🔍</span>
+                <span class="text">Multiplication Games</span>
+                <span class="arrow-icon">❯</span>
+            </a>
+        </div>
+    </div>
+
+    <footer class="go-daddy-footer">
+        <p class="copyright">
+            Copyright &copy; 1999-2025 GoDaddy, LLC. All rights reserved. 
+            <a href="#">Privacy Policy</a>
+        </p>
+        <p class="disclaimer">
+            Disclaimer: References to any specific company, product or services on this Site are not controlled by GoDaddy.com LLC and do not constitute or imply its association with or endorsement of third party advertisers.
+        </p>
+    </footer>
+</body>
+</html>
+
+

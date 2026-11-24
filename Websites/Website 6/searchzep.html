@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* --- Global Styling and Section Container --- */
+:root {
+    --zepto-purple: #7b1fa2; /* Main Zepto purple */
+    --active-purple: #a55eea; /* Lighter purple for active text/icon */
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --bg-white: #ffffff;
+}
+
+/* Basic Reset and Font */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* --- 1. Top Header Row --- */
+.header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Optional: Constrain the content width */
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--zepto-purple);
+    margin-right: 15px;
+}
+
+.location-select {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    margin-left: 4px;
+    color: var(--light-text);
+}
+
+.search-bar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Limit search bar width */
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow like in the image */
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding-left: 10px;
+    color: var(--light-text);
+}
+
+.search-icon {
+    font-size: 16px;
+    color: var(--light-text);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.user-item {
+    margin-left: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.user-icon, .cart-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+    color: var(--light-text);
+}
+
+/* --- 2. Category Navigation Bar --- */
+.category-nav {
+    background-color: var(--bg-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative; /* To position the scroll arrows */
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow-x: hidden; /* Hide the natural scrollbar */
+    white-space: nowrap; /* Keep items in a single line */
+}
+
+.category-item {
+    font-weight: 500;
+    padding-bottom: 10px; /* Space for the underline */
+    cursor: pointer;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.category-icon {
+    font-size: 16px;
+    margin-right: 5px;
+    color: var(--light-text);
+}
+
+.category-item.active {
+    color: var(--active-purple);
+    font-weight: 700;
+    position: relative;
+}
+
+.category-item.active .category-icon {
+    color: var(--active-purple);
+}
+
+/* The purple underline effect */
+.category-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Adjust to sit exactly on the border */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--active-purple);
+    border-radius: 2px;
+}
+
+/* Scroll Arrows (for visual representation of the image) */
+.scroll-arrows {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Make arrows non-interactive in this example */
+}
+
+.arrow {
+    background: var(--bg-white);
+    padding: 10px;
+    font-size: 14px;
+    color: var(--light-text);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.left {
+    left: 0;
+    margin-left: 0;
+}
+
+.right {
+    right: 0;
+    margin-right: 0;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+
+.snack-time-section {
+    padding: 20px 0 30px;
+    font-family: 'Arial', sans-serif; /* Use a common sans-serif font */
+    background-color: #f7f7f7; /* Light background for the whole section */
+}
+
+.section-heading {
+    font-size: 28px;
+    font-weight: 800;
+    color: #333;
+    padding: 0 16px; /* Match the side padding of the content */
+    margin-bottom: 20px;
+}
+
+/* --- Carousel Layout (Horizontal Scroll) --- */
+.product-carousel-container {
+    display: flex; /* Arranges cards horizontally */
+    overflow-x: scroll; /* Enables horizontal scrolling */
+    padding: 0 16px 15px; /* Side padding and bottom padding for scrollbar visibility */
+    gap: 12px; /* Space between product cards */
+    /* Hide the scrollbar for a cleaner look (optional, but common in UIs) */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.product-carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* --- Individual Product Card Styling --- */
+.product-card {
+    width: 130px; /* Fixed width for each card as per the image */
+    flex-shrink: 0; /* Prevents cards from shrinking */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    overflow: hidden;
+}
+
+/* Image and ADD Button Positioning */
+.product-image-container {
+    position: relative;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.action-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #00A651; /* Zepto's primary green */
+    text-transform: uppercase;
+}
+
+/* --- Details, Pricing, and Tag Styling --- */
+.product-details {
+    padding: 8px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.price-current {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-right: 4px;
+}
+
+.price-old {
+    font-size: 12px;
+    color: #888;
+    text-decoration: line-through;
+    margin-right: 6px;
+}
+
+.discount {
+    font-size: 10px;
+    color: #FF6F61; 
+    font-weight: 700;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+    height: 34px; 
+    overflow: hidden;
+}
+
+.product-unit {
+    font-size: 12px;
+    color: #888;
+    margin: 4px 0 2px 0;
+}
+
+.product-tag {
+    font-size: 10px;
+    color: #888;
+    margin: 0 0 4px 0;
+}
+
+.product-tag.highly-reordered {
+    color: #00A651; 
+}
+
+.rating {
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.star-icon {
+    color: gold;
+    margin-right: 2px;
+}
+
+.review-count {
+    color: #888;
+    margin-left: 2px;
+}
+
+.see-all-container {
+    padding: 15px 16px 0; 
+}
+
+.see-all-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #fce4ec; 
+    color: #cc0066; 
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+.see-all-link:hover {
+    background-color: #f9d8e3;
+}
+
+.arrow {
+    margin-left: 5px;
+    font-weight: 800;
+}
+
+/* General reset/setup */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff; 
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+.menu-title {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.menu-title::after {
+    content: '☕'; /* Emoji for the cold beverage icon */
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+/* Horizontal Scrolling Wrapper (contains list and arrow) */
+.beverages-scroll-wrapper {
+    position: relative;
+    padding-right: 45px; /* Space for the scroll arrow */
+}
+
+/* Horizontal Scrolling Container */
+.beverages-list {
+    display: flex; 
+    overflow-x: scroll; /* Enables horizontal scrolling */
+    padding-bottom: 15px;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    
+    /* Optional: Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.beverages-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Individual Product Card Styling */
+.product-card {
+    flex: 0 0 auto; 
+    width: 155px; /* Card width */
+    margin-right: 18px;
+    padding: 10px;
+    padding-bottom: 15px; /* Extra padding for bottom content */
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee; /* Very subtle border */
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    white-space: normal;
+}
+
+/* Image and ADD button */
+.image-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+/* ADD Button Styling */
+.add-button {
+    position: absolute;
+    bottom: -15px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: #4CAF50; 
+    border: 1px solid #4CAF50;
+    padding: 3px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+.add-button.with-options::after {
+    content: ' 2 options'; /* Add '2 options' text */
+    font-weight: normal;
+    color: #888;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+
+/* Price and Discount */
+.price-info {
+    margin-top: 15px; 
+    display: flex;
+    align-items: center;
+    order: 1; /* Order 1: Price info comes first */
+}
+
+.current-price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333; /* Dark color for current price */
+    margin-right: 5px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    /* Match the green background look from the image */
+    background-color: #e8f5e9; /* Very light green */
+    color: #388e3c; /* Darker green text */
+    font-size: 1.05em;
+}
+.current-price.green-bg {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.original-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.8em;
+}
+
+.discount-label {
+    background-color: #fce4ec; /* Light pink background */
+    color: #d81b60; /* Dark pink text */
+    font-size: 0.7em;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+    font-weight: 600;
+    order: 2; /* Order 2: Discount label below price info */
+}
+
+
+/* Product Details */
+.product-name {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 5px 0 2px 0;
+    order: 3; /* Order 3: Product Name */
+}
+
+.volume {
+    font-size: 0.8em;
+    color: #777;
+    margin: 0;
+    order: 4; /* Order 4: Volume */
+}
+
+.tag {
+    font-size: 0.8em;
+    color: #00796b; 
+    font-weight: 600;
+    margin: 5px 0;
+    order: 5; /* Order 5: Tags like 100% Arabica */
+}
+.tag.protein-boost {
+    color: #3f51b5; /* Blue for Protein Boost */
+}
+.tag.rich {
+    color: #ff9800; /* Orange for Rich */
+}
+
+
+/* Rating */
+.rating {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: #777;
+    order: 6; /* Order 6: Rating */
+}
+
+.stars {
+    color: #FFC107; /* Yellow for stars */
+    margin-right: 3px;
+    font-weight: 600;
+}
+.reviews {
+    font-size: 0.9em;
+}
+
+/* Scroll Arrow Navigation */
+.scroll-nav {
+    position: absolute;
+    top: 50%; 
+    right: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10; 
+}
+.scroll-nav svg {
+    width: 15px;
+    height: 15px;
+}
+
+.info-section {
+    background-color: var(--bg-white);
+    padding: 50px 0 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+.info-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.about-text-block {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.main-heading {
+    font-size: 40px;
+    font-weight: 900;
+    color: #4a4a4a;
+    margin: 0 0 10px 0;
+}
+.sub-heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--fssai-text-color);
+    margin: 0 0 20px 0;
+}
+.zepto-team-text {
+    color: var(--zepto-purple);
+    font-weight: 700;
+}
+.fssai-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--fssai-text-color);
+}
+.lic-number {
+    margin-left: 10px;
+}
+.how-it-works-block {
+    text-align: center;
+    margin-top: 30px;
+}
+.how-it-works-block h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.step-card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+.icon-placeholder {
+    height: 80px;
+    width: 80px;
+    background-color: var(--banner-light-purple);
+    border-radius: 12px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: var(--zepto-purple);
+}
+.step-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 10px 0;
+}
+.step-card p {
+    font-size: 14px;
+    color: var(--light-text);
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+.mega-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 0 20px;
+}
+.mega-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.popular-searches-block {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.popular-searches-block h4, .categories-links-block h4 {
+    color: var(--footer-heading);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.search-group {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+.search-group strong {
+    color: var(--footer-heading);
+    font-weight: 700;
+    margin-right: 5px;
+}
+.categories-links-block {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.categories-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.categories-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+.categories-columns li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.links-download-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer-logo-social {
+    width: 200px;
+}
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--zepto-purple);
+    display: block;
+    margin-bottom: 15px;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.social-icon {
+    font-size: 20px;
+    color: var(--footer-heading);
+}
+.fssai-lic-text {
+    font-size: 12px;
+}
+.footer-links-columns {
+    display: flex;
+    gap: 60px;
+}
+.footer-links-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links-columns li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.download-app-section h4 {
+    color: var(--footer-heading);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.app-store-button {
+    background-color: var(--footer-heading);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+
+     <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <span class="logo">zepto</span>
+                <div class="location-select">
+                    <span class="select-text">Select Location</span>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+            </div>
+
+            <div class="search-bar-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search for &quot;kurkure&quot;">
+                </div>
+            </div>
+
+            <div class="user-actions">
+                <div class="user-item">
+                    <span class="user-icon">👤</span>
+                    <span>Login</span>
+                </div>
+                <div class="user-item cart">
+                    <span class="cart-icon">🛒</span>
+                    <span>Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <ul class="category-list">
+            <li class="category-item active">
+                <span class="category-icon">🛍️</span> All
+            </li>
+            <li class="category-item">
+                <span class="category-icon">☕</span> Cafe
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🏠</span> Home
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🧸</span> Toys
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🌿</span> Fresh
+            </li>
+            <li class="category-item">
+                <span class="category-icon">🔌</span> Electronics
+            </li>
+            <li class="category-item">
+                <span class="category-icon">📱</span> Mobiles
+            </li>
+            <li class="category-item">
+                <span class="category-icon">💄</span> Beauty
+            </li>
+            <li class="category-item">
+                <span class="category-icon">👗</span> Fashion
+            </li>
+        </ul>
+        <div class="scroll-arrows">
+            <span class="arrow left">◀</span>
+        </div>
+    </nav>
+
+
+    <div class="image">
+        <img src="https://cdn.zeptonow.com/production/tr:w-1280,ar-5120-1040,pr-true,f-auto,q-80/inventory/banner/1a6e9b9d-73b4-4b6a-a043-f2d2f309b54a.png" alt="">
+    </div>
+
+    <section class="snack-time-section">
+    <h2 class="section-heading">Snack Time 🍿</h2>
+    
+    <div class="product-carousel-container">
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,q-80/cms/product_variant/85c3cf96-b48e-402b-a63f-c41c74c0ba2f.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹119</span>
+                    <span class="price-old">₹139</span>
+                    <span class="discount">₹20 OFF</span>
+                </div>
+                <h3 class="product-name">Bombay Aloo Tikki Sandwich</h3>
+                <p class="product-unit">Serves 1</p>
+                <p class="product-tag">Street Style</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.1</span> 
+                    <span class="review-count">(25.3k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/6c2b8332-8ffa-48e2-bac9-74feda4da37c.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹70</span>
+                    <span class="price-old">₹79</span>
+                    <span class="discount">₹9 OFF</span>
+                </div>
+                <h3 class="product-name">Veg Puff</h3>
+                <p class="product-unit">1 Piece</p>
+                <p class="product-tag highly-reordered">Highly Reordered</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.4</span> 
+                    <span class="review-count">(72.4k)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-5071-5071,pr-true,f-auto,q-80/cms/product_variant/3cb4b86c-5abc-460b-8d9d-98a74a67b2a0.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹65</span>
+                    <span class="price-old">₹79</span>
+                    <span class="discount">₹14 OFF</span>
+                </div>
+                <h3 class="product-name">Samosa - 2 Pieces</h3>
+                <p class="product-unit">2 Pieces</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.1</span> 
+                    <span class="review-count">(87.7k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/8bb09df1-c095-475d-8aed-c0be55a175da.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹129</span>
+                    <span class="price-old">₹149</span>
+                    <span class="discount">₹20 OFF</span>
+                </div>
+                <h3 class="product-name">Butter Chicken Steamed Bao</h3>
+                <p class="product-unit">2 Pieces</p>
+                <p class="product-tag">Soft & Fluffy</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.2</span> 
+                    <span class="review-count">(13.9k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/b354a4d2-ffc7-4216-b92e-fc91a07453d9.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹80</span>
+                    <span class="price-old">₹89</span>
+                    <span class="discount">₹9 OFF</span>
+                </div>
+                <h3 class="product-name">Chicken Puff</h3>
+                <p class="product-unit">1 Piece</p>
+                <p class="product-tag highly-reordered">Highly Reordered</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.3</span> 
+                    <span class="review-count">(83.6k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/1b66e21a-e02c-4e6e-bf1f-e3507b1ee055.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹155</span>
+                    <span class="price-old">₹179</span>
+                    <span class="discount">₹24 OFF</span>
+                </div>
+                <h3 class="product-name">Chole Samose</h3>
+                <p class="product-unit">1 Portion</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">3.9</span> 
+                    <span class="review-count">(3.3k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1998-2000,pr-true,f-auto,q-80/cms/product_variant/b5799330-3919-4e9d-bd01-3a7dc898fa1c.jpeg" alt="">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹159</span>
+                    <span class="price-old">₹179</span>
+                    <span class="discount">₹20 OFF</span>
+                </div>
+                <h3 class="product-name">Hellmann's Paneer Tikka Sandwich</h3>
+                <p class="product-unit">Serves 1</p>
+                <p class="product-tag">Protein Packed</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.1</span> 
+                    <span class="review-count">(17.6k)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/f4b05def-9f0b-4fc1-a1ba-55b8714aaa72.jpeg" alt=""height="100" width="95">
+                <button class="action-button add-button">ADD</button>
+            </div>
+            <div class="product-details">
+                <div class="price-row">
+                    <span class="price-current">₹99</span>
+                    <span class="price-old">₹109</span>
+                    <span class="discount">₹10 OFF</span>
+                </div>
+                <h3 class="product-name">Cheese Maggi</h3>
+                <p class="product-unit">1 Portion</p>
+                <div class="rating">
+                    <span class="star-icon">★</span> 
+                    <span class="rating-value">4.3</span> 
+                    <span class="review-count">(100.0k)</span>
+                </div>
+            </div>
+        </div>
+
+
+       
+
+        <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-4318-4318,pr-true,f-auto,q-80/cms/product_variant/693055b3-9e4e-46f8-b963-d88d35ce35f9.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹189</span>
+                <span class="price-old">₹209</span>
+                <span class="discount">₹20 OFF</span>
+            </div>
+            <h3 class="product-name">Chicken Tandoori Momos</h3>
+            <p class="product-unit">6 Pieces</p>
+            <p class="product-tag special-tag">Smoky Flavour</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.5</span> 
+                <span class="review-count">(34.6k)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/18ad43a8-c575-443c-b2ab-23489cf86ce1.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹135</span>
+                <span class="price-old">₹149</span>
+                <span class="discount">₹14 OFF</span>
+            </div>
+            <h3 class="product-name">Hot Chocolate</h3>
+            <p class="product-unit">250 ml</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.2</span> 
+                <span class="review-count">(33.8k)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/212e3a37-ff02-4acc-9574-178d157b3df8.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹115</span>
+                <span class="price-old">₹129</span>
+                <span class="discount">₹14 OFF</span>
+            </div>
+            <h3 class="product-name">Poha</h3>
+            <p class="product-unit">Serves 1</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.2</span> 
+                <span class="review-count">(20.2k)</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/f999f228-7a69-4884-b04b-78c9fd0cfe22.jpeg" alt="">
+            <button class="action-button add-button">ADD <span class="options">2 options</span></button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹169</span>
+                <span class="price-old">₹189</span>
+                <span class="discount">₹20 OFF</span>
+            </div>
+            <h3 class="product-name">Hazelnut Cold Coffee</h3>
+            <p class="product-unit">350 ml</p>
+            <p class="product-tag coffee-tag">100% Arabica</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.4</span> 
+                <span class="review-count">(41.6k)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-4487-4487,pr-true,f-auto,q-80/cms/product_variant/0320dafe-0820-44c7-a59a-7aef807c3af1.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹99</span>
+                <span class="price-old">₹109</span>
+                <span class="discount">₹10 OFF</span>
+            </div>
+            <h3 class="product-name">Wheat Chapati - Pack of 10</h3>
+            <p class="product-unit">Pack of 10</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.5</span> 
+                <span class="review-count">(54.1k)</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/5c4f8a67-a5fe-46e4-b717-328c9c1f91a1.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹129</span>
+                <span class="price-old">₹149</span>
+                <span class="discount">₹20 OFF</span>
+            </div>
+            <h3 class="product-name">Iced Americano</h3>
+            <p class="product-unit">450 ml</p>
+            <p class="product-tag coffee-tag">100% Arabica</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.2</span> 
+                <span class="review-count">(10.0k)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image-container">
+            <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/b354a4d2-ffc7-4216-b92e-fc91a07453d9.jpeg" alt="">
+            <button class="action-button add-button">ADD</button>
+        </div>
+        <div class="product-details">
+            <div class="price-row">
+                <span class="price-current">₹80</span>
+                <span class="price-old">₹89</span>
+                <span class="discount">₹9 OFF</span>
+            </div>
+            <h3 class="product-name">Chicken Puff</h3>
+            <p class="product-unit">1 Piece</p>
+            <p class="product-tag special-tag">Highly Reordered</p>
+            <div class="rating">
+                <span class="star-icon">★</span> 
+                <span class="rating-value">4.3</span> 
+                <span class="review-count">(83.6k)</span>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+    
+    <div class="see-all-container">
+        <a href="#" class="see-all-link">
+            See all <span class="arrow">&gt;</span>
+        </a>
+    </div>
+</section>
+    <div class="menu-container">
+        <h1 class="menu-title">Cold Beverages 🧊</h1>
+        
+        <div class="beverages-scroll-wrapper">
+            <div class="beverages-list">
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-4976-4976,pr-true,f-auto,q-80/cms/product_variant/3675e8dc-5bf9-4e12-a39f-941d6e89d788.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price">₹129</span>
+                        <span class="original-price">₹149</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Lemon Iced Tea</h3>
+                    <p class="volume">450 ml</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.4</span> 
+                        <span class="reviews">(8.7k)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/5c4f8a67-a5fe-46e4-b717-328c9c1f91a1.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price">₹129</span>
+                        <span class="original-price">₹149</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Iced Americano</h3>
+                    <p class="volume">450 ml</p>
+                    <p class="tag">100% Arabica</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.2</span>
+                        <span class="reviews">(10.0k)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/5f7e0c6b-b8de-48e6-bc09-e8f1f27077ef.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price">₹189</span>
+                        <span class="original-price">₹209</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Vietnamese Cold Coffee</h3>
+                    <p class="volume">450 ml</p>
+                    <p class="tag">100% Arabica</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.4</span>
+                        <span class="reviews">(17.5k)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/f999f228-7a69-4884-b04b-78c9fd0cfe22.jpeg" alt="">
+                        <button class="add-button with-options">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price green-bg">₹169</span>
+                        <span class="original-price">₹189</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Hazelnut Cold Coffee</h3>
+                    <p class="volume">350 ml</p>
+                    <p class="tag">100% Arabica</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.4</span>
+                        <span class="reviews">(41.6k)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-3838-3838,pr-true,f-auto,q-80/cms/product_variant/18179217-604a-4ccb-8718-e864b00c40f9.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price green-bg">₹99</span>
+                        <span class="original-price">₹109</span>
+                    </div>
+                    <div class="discount-label">₹10 OFF</div>
+                    <h3 class="product-name">Masala Chaas</h3>
+                    <p class="volume">450 ml</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.6</span>
+                        <span class="reviews">(9.2k)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-5000-5000,pr-true,f-auto,q-80/cms/product_variant/ba89737c-5e81-4273-97ac-8feec53b0120.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price green-bg">₹159</span>
+                        <span class="original-price">₹179</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Whey Protein Masala Chaas - Wellbeing</h3>
+                    <p class="volume">450 ml</p>
+                    <p class="tag protein-boost">Protein Boost</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.6</span>
+                        <span class="reviews">(436)</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-4537-4537,pr-true,f-auto,q-80/cms/product_variant/0aaa8eca-ca98-4b17-b672-da73b31b159c.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price">₹189</span>
+                        <span class="original-price">₹209</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Espresso Tonic</h3>
+                    <p class="volume">450 ml</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.6</span>
+                        <span class="reviews">(1.8k)</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-2352-2352,pr-true,f-auto,q-80/cms/product_variant/c176b4c0-ee0f-4ef4-8d75-692877d8b2c4.jpeg" alt="">
+                        <button class="add-button with-options">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price green-bg">₹159</span>
+                        <span class="original-price">₹179</span>
+                    </div>
+                    <div class="discount-label">₹20 OFF</div>
+                    <h3 class="product-name">Classic Cold Coffee</h3>
+                    <p class="volume">350 ml</p>
+                    <p class="tag">100% Arabica</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.6</span>
+                        <span class="reviews">(68.0k)</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://cdn.zeptonow.com/production/tr:w-403,ar-1004-1004,pr-true,f-auto,q-80/cms/product_variant/ae58be90-81df-49cf-9fb9-9495a585c6ea.jpeg" alt="">
+                        <button class="add-button">ADD</button>
+                    </div>
+                    <div class="price-info">
+                        <span class="current-price green-bg">₹116</span>
+                        <span class="original-price">₹129</span>
+                    </div>
+                    <div class="discount-label">₹13 OFF</div>
+                    <h3 class="product-name">Mixed Berry Shake </h3>
+                    <p class="volume">350 ml</p>
+                    <p class="tag rich">Rich</p>
+                    <div class="rating">
+                        <span class="stars">⭐ 4.5</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="scroll-nav right-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 6L14 12L10 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+
+
+     
+    <div class="see-all-container">
+        <a href="#" class="see-all-link">
+            See all <span class="arrow">&gt;</span>
+        </a>
+    </div>
+
+
+    
+        <footer class="info-section">
+        <div class="info-content-wrapper">
+            <div class="about-text-block">
+                <h2 class="main-heading">The place that fits all your needs</h2>
+                <p class="sub-heading">Crafted with love from <span class="zepto-team-text">Zepto Team ❤️</span></p>
+                <div class="fssai-block">
+                                        <span class="lic-number">LIC no - 11224999000872</span>
+                </div>
+            </div>
+
+            <div class="how-it-works-block">
+                <h3>How it Works</h3>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/place-order.svg" alt="">
+                        </div>
+                        <h4>Open the app</h4>
+                        <p>Choose from over 7000 products across groceries, fresh fruits & veggies, meat, pet care, beauty items & more</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/do-not-blink.svg" alt="">
+                        </div>
+                        <h4>Place an order</h4>
+                        <p>Add your favourite items to the cart & avail the best offers</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/13.31.2/images/pdp/enjoy.svg" alt="">
+                        </div>
+                        <h4>Get free delivery</h4>
+                        <p>Experience lightning-fast speed & get all your items delivered in 10 minutes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="mega-footer">
+        <div class="mega-footer-content">
+            <div class="popular-searches-block">
+                <h4>Popular Searches</h4>
+                <div class="search-group">
+                    <strong>Products:</strong> Avocado | Strawberry | Pomegranate | Beetroot | Ash gourd | Bottle gourd | Lady finger | Potato | Lemon | Dalchini | Fennel seeds | Blueberry | Papaya | Dragon fruit | Mushroom | Lettuce
+                </div>
+                <div class="search-group">
+                    <strong>Brands:</strong> Yakult | My Muse | Aashirvaad Atta | Too Yumm | Lays | Figaro Olive Oil | Nandini Milk | Amul | Mother Dairy Near Me | Fortune Oil | Superyqu | Durex Condoms | Ferns and Petals
+                </div>
+                <div class="search-group">
+                    <strong>Categories:</strong> Grocery | Cigarettes | Chips | Curd | Hukka flavour | Paan shop near me | Eggs price | Cheese slice | Fresh fruits | Fresh vegetables | Refined oil | Butter price | Paneer price
+                </div>
+            </div>
+
+            <div class="categories-links-block">
+                <h4>Categories</h4>
+                <div class="categories-columns">
+                    <ul>
+                        <li>Fruits & Vegetables</li>
+                        <li>Baby Food</li>
+                        <li>Breakfast & Sauces</li>
+                        <li>Cleaning Essentials</li>
+                        <li>Homegrown Brands</li>
+                    </ul>
+                    <ul>
+                        <li>Atta, Rice, Oil & Dals</li>
+                        <li>Dairy, Bread & Eggs</li>
+                        <li>Tea, Coffee & More</li>
+                        <li>Home Needs</li>
+                        <li>Paan Corner</li>
+                    </ul>
+                    <ul>
+                        <li>Masala & Dry Fruits</li>
+                        <li>Cold Drinks & Juices</li>
+                        <li>Biscuits</li>
+                        <li>Electricals & Accessories</li>
+                    </ul>
+                    <ul>
+                        <li>Sweet Cravings</li>
+                        <li>Munchies</li>
+                        <li>Makeup & Beauty</li>
+                        <li>Hygiene & Grooming</li>
+                    </ul>
+                    <ul>
+                        <li>Frozen Food & Ice Creams</li>
+                        <li>Meats, Fish & Eggs</li>
+                        <li>Bath & Body</li>
+                        <li>Health & Baby Care</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="links-download-block">
+                <div class="footer-logo-social">
+                    <span class="footer-logo">zepto</span>
+                    <p>© Zepto Marketplace Private Limited</p>
+                    <p class="fssai-lic-text">fssai lic no: 11224999000872</p>
+                </div>
+                <div class="footer-links-columns">
+                    <ul>
+                        <li>Home</li>
+                        <li>Delivery Areas</li>
+                        <li>Careers</li>
+                        <li>Customer Support</li>
+                        <li>Press</li>
+                        <li>Mojo - a Zepto Blog</li>
+                    </ul>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>Responsible Disclosure Policy</li>
+                        <li>Sell on Zepto</li>
+                        <li>Deliver with Zepto</li>
+                        <li>Franchise with Zepto</li>
+                    </ul>
+                </div>
+                <div class="download-app-section">
+                    <h4>Download App</h4>
+                    <button class="app-store-button"> Get it on play store</button>
+                    <button class="app-store-button"> Get it on app store</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

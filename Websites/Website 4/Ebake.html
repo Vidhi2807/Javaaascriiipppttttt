@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake Store Clone</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo span {
+    color: #cc0000; 
+}
+
+.top-nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+.top-nav a {
+    font-size: 14px;
+    color: #555;
+}
+
+.icons a {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #555;
+}
+
+.secondary-nav {
+    border-bottom: 1px solid #eee;
+    padding: 10px 40px;
+}
+
+.secondary-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.secondary-nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.arrivals-section {
+    padding: 40px 40px;
+}
+
+.arrivals-section h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    text-align: left;
+    max-width: 200px; 
+}
+.product-image {
+    background-color: #f7f7f7;
+    height: 180px;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    border: 1px solid #eee; 
+}
+
+.product-image.sale .sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e60000; 
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.product-name {
+    font-size: 14px;
+    line-height: 1.4;
+    height: 40px;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.product-price del {
+    color: #999;
+    font-weight: normal;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.product-image:before {
+    content: 'Image Placeholder';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #ccc;
+    font-size: 12px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+
+
+
+
+.view-all-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.view-all-button {
+    background-color: #333;
+    color: white;
+    padding: 8px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.collection-title {
+    font-size: 32px;
+    font-weight: normal;
+    margin: 0 0 30px 40px; 
+}
+
+.christmas-content-grid {
+    display: grid;
+    grid-template-columns: 6fr 4fr; 
+    gap: 30px;
+    padding: 0 40px; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.promo-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.banner-overlay-text {
+    display: none; 
+}
+
+
+.product-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+
+
+
+.sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #cc0000; 
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+.product-name {
+    font-size: 14px;
+    margin: 5px 0 2px 0;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #333;
+}
+
+.product-price del {
+    color: #999;
+    font-weight: normal;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.product-price strong {
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .christmas-content-grid {
+        grid-template-columns: 1fr; 
+        padding: 0 20px;
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff; 
+}
+
+.testimonials-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+}
+
+.header h2 {
+    width: 100%;
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.rating-summary {
+    margin-bottom: 30px;
+}
+
+.stars-main {
+    color: #ffc107; 
+    font-size: 1.5em;
+    display: block;
+   
+}
+
+.check-mark {
+    color: #4CAF50; 
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.review-card {
+    flex: 1; 
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff; 
+}
+
+.stars-review {
+    color: #ffc107;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.review-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+.review-text {
+    font-size: 0.9em;
+    color: #666;
+    min-height: 50px; 
+}
+
+.reviewer-name {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.reviewer-image img {
+    width: 60px; 
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px; 
+}
+
+.review-navigation {
+    font-size: 2em;
+    color: #ccc; 
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.footer-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #eee; 
+}
+
+.detail-item {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.express-text {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.site-footer {
+    background-color: #ffffff; 
+    color: #333; 
+    padding: 40px 5%;
+    font-family: Arial, sans-serif;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1; 
+    max-width: 30%;
+    text-align: left;
+}
+
+.column-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+.quick-links a {
+    text-decoration: none;
+    color: #666; 
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+.quick-links a:hover {
+    color: #000;
+}
+
+.shipping-time p, 
+.contact-us p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    color: #666;
+}
+
+.contact-us a {
+    color: #666;
+    text-decoration: none;
+}
+
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background-color: #eee; 
+    margin: 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.subscription-section {
+    flex: 1;
+    text-align: left;
+}
+
+.email-form {
+    display: flex;
+    width: 300px;
+    border: 1px solid #ccc;
+    height: 40px;
+}
+
+.email-form input {
+    flex-grow: 1;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.email-form button {
+    width: 40px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #333;
+    padding: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+    .footer-column {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+        .category-menu {
+    /* Sets the overall width of the menu */
+    /* width: 250px;  */
+    padding: 10px 0;
+    /* Optional: Sets the background color for visual separation */
+    background-color: #ffffff; 
+    /* border-right: 1px solid #ddd; */
+    border: 2px solid #ddd;
+
+
+}
+
+.category-menu ul {
+    /* Removes default list bullet points and padding */
+    list-style: none;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    
+    font-family: Arial, sans-serif; /* Use a clean, readable font */
+}
+
+.category-menu li a {
+    /* Styles for the links inside the list items */
+    display: block; /* Makes the entire list item area clickable */
+    padding: 8px ;
+    text-decoration: none;
+    color: #444444; /* Dark gray text color */
+    font-size: 14px;
+    font-weight: 500; /* Standard weight */
+    /* line-height: 1.5; */
+    transition: background-color 0.2s; /* Smooth hover effect */
+}
+
+/* Styling for the highlighted item "Engagement & Wedding" */
+.category-menu li.highlighted a {
+    color: #000000; /* Black text for emphasis */
+    font-weight: 700; /* Bold font weight */
+    font-size: 15px; /* Slightly larger text */
+}
+
+.category-menu li a:hover {
+    /* Subtle hover effect */
+    background-color: #f0f0f0; 
+    color: #333333;
+}
+.dropdown { 
+    position: relative;
+}
+.category-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 0;
+    margin: 2px;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-cont{
+    position: relative;
+}
+.dropdown-cont:hover .category-menu{
+display: flex;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span style="font-size: 30px; font-weight: bold;">ΞBAKE</span>
+        </div>
+        <div class="top-nav">
+            <ul class="dropdown">
+                <li class="dropdown-cont"><a href="#">Cake Toppers ˅</a>
+                     <div class="category-menu">
+    <ul>
+        <li><a href="#">Christmas & New Year</a></li>
+        <li><a href="#">Birthday</a></li>
+        <li><a href="#">Anniversary</a></li>
+        <li><a href="#">Mini Toppers</a></li>
+        <li class="highlighted"><a href="#">Engagement & Wedding</a></li>
+        <li><a href="#">Baby Birthday & Baby Shower</a></li>
+        <li><a href="#">Cake Coins</a></li>
+        <li><a href="#">Acrylic Sets & Cutouts</a></li>
+        <li><a href="#">Dad & Mom</a></li>
+        <li><a href="#">Line Art</a></li>
+        <li><a href="#">Cartoon Theme Toppers</a></li>
+        <li><a href="#">Religious</a></li>
+        <li><a href="#">Numbers</a></li>
+        <li><a href="#">Rainbow Toppers</a></li>
+        <li><a href="#">Glitter & Foam</a></li>
+        <li><a href="#">Double & Vertical</a></li>
+        <li><a href="#">Miscellaneous Toppers</a></li>
+        <li><a href="#">Figurines</a></li>
+        <li><a href="#">Women's Day</a></li>
+        <li><a href="#">Mother's Day</a></li>
+        <li><a href="#">Father's Day</a></li>
+        <li><a href="#">Ganesha</a></li>
+        <li><a href="#">Valentine's Day</a></li>
+    </ul>
+</div> 
+                </li>
+                <li><a href="#">Faux Bails</a></li>
+                <li><a href="#">Knife</a></li>
+                <li><a href="#">Candles</a></li>
+                <li><a href="#">Crown</a></li>
+                <li><a href="#">Artificial Flowers & Leaves ˅</a></li>
+                <li><a href="#">Dried Flowers & Grass ˅</a></li>
+                <li><a href="#">Butterflies ˅</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <a href="#">🔍</a>
+            <a href="#">🛒</a>
+            <a href="#">👤</a>
+        </div>
+    </header>
+
+    <nav class="secondary-nav">
+        <ul>
+            <li><a href="#">Cake Spacers</a></li>
+            <li><a href="#">Edible Cake Decoration</a></li>
+            <li><a href="#">Boxes, Muffin Cups & Bake N Serve ˅</a></li>
+            <li><a href="#">Bakeware</a></li>
+            <li><a href="#">Ribbons</a></li>
+            <li><a href="#">Party Decoration</a></li>
+            <li><a href="#">Other Cake Decoration</a></li>
+            <li><a href="#">Silicone Moulds & Cutters</a></li>
+            <li><a href="#">Track Your Order</a></li>
+        </ul>
+    </nav>
+
+    <main class="arrivals-section">
+        <h1>Explore New Arrivals</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                
+                                  <img src="https://ebakeonline.com/cdn/shop/files/rn-image_picker_lib_temp_2c594ca8-2747-44a9-9f2b-3d1ee2c23f1d.jpg?v=1761636852&width=823" alt="" height="200px" width="200px">
+
+                <p class="product-name">Unicorn Topper - Assorted Colours (Single Piece)</p>
+                <p class="product-price">Rs. 99.00</p>
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                                    <img src="https://ebakeonline.com/cdn/shop/files/2_7b5228e2-1f78-47ad-87d1-3246a56476e3.jpg?v=1760776349&width=360" alt="" height="200" width="200">
+
+                <p class="product-name">Disposable Bio Degradable Cleansing Wet Wipe (100 Wipes)</p>
+                <p class="product-price">Rs. 99.00</p>
+                <button> Add to cart </button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/92_ae7ad2b3-c55d-4fda-9b5f-e2ef28168c3c.jpg?v=1758597890&width=360" alt="">
+                <p class="product-name">4 Cavity Plastic Cupcake Box / Clear Cupcake Holder (Set of 5 Pieces)</p>
+                <p class="product-price">Rs. 99.00</p>
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/95_dde9acb7-fef3-4030-b03a-5e3df4465755.jpg?v=1758597851&width=360" alt="">
+                <p class="product-name">6 Cavity Plastic Cupcake Box / Clear Cupcake Holder (Set of 5 Pieces)</p>
+                <p class="product-price">Rs. 99.00</p>
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/11_76eb9e0d-6629-46fe-bee7-a980de774fd0.png?v=1758120042&width=360" alt="">
+                    <span class="sale-tag">Sale</span>
+                <p class="product-name">Pink Tulip Cupcake Liner Paper Baking Cups (Set of 50)</p>
+                <p class="product-price"><del>Rs. 250.00</del> **Rs. 189.00**</p>
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/Redtulipcup_2.png?v=1758119869&width=360" alt="">
+                    <span class="sale-tag">Sale</span>
+                <p class="product-name">Red Tulip Cupcake Liner Paper Baking Cups (Set of 50)</p>
+                <p class="product-price"><del>Rs. 250.00</del> **Rs. 189.00**</p>
+                                <button> Add to cart </button>
+
+            </div>
+        </div>
+    </main>
+
+    
+    <div class="view-all-button-container">
+        <button class="view-all-button">View all</button>
+    </div>
+
+    <h1 class="collection-title">Christmas Collection</h1>
+
+    <div class="christmas-content-grid">
+
+        <div class="promo-banner">
+            <img src="https://ebakeonline.com/cdn/shop/collections/Christmas_Sale_EBake_2025.png?v=1760166923&width=750" alt="" height="550px" width="650px">
+        
+        </div>
+
+        <div class="product-column">
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/11_f92ee83d-987f-4eaf-994e-63864915b3e6.jpg?v=1760163250&width=360" alt="">
+                    <span class="sale-tag">Sale</span>
+                <p class="product-name">Christmas Figurines Cake Topper (Set of 4 Pcs)</p>
+                <p class="product-price"><del>Rs. 100.00</del> **Rs. 100.00**</p> 
+                </div>
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/2_a53e1e6b-1e37-4537-81e3-0a2859aa244a.jpg?v=1731348328&width=360" alt="">
+                <p class="product-name"> Merry Christmas Cake Topper Christmas Wreath Cake Decoration A1280</p>
+                <p class="product-price">Rs. 26.00</p>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+    <h1 class="collection-title">Candles</h1>
+
+    <div class="christmas-content-grid">
+
+        <div class="promo-banner">
+            <img src="https://ebakeonline.com/cdn/shop/collections/38fa0afdf05ad305c30f81b438468712.jpg?v=1735542585" alt="" height="550px" width="650px">
+            <div class="banner-overlay-text">
+                <h2>CHRISTMAS SALE</h2>
+                <h3>UP TO 40% OFF</h3>
+                <button class="shop-now-btn">SHOP NOW</button>
+            </div>
+        </div>
+
+        <div class="product-column">
+            
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/Pasteltwistedcandle.jpg?v=1754304861&width=720" alt="">
+                    <span class="sale-tag">sale</span>
+                <p class="product-name">Pastel Color Twisted Candle Set</p>
+                <p class="product-price"><del>Rs. 60.00</del> Rs. 30.00</p> 
+                </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/rn-image_picker_lib_temp_9a19da43-d2e3-4a08-bfca-23bc76e1470a.jpg?v=1759733814&width=720" alt="">
+                <p class="product-name">  Golden metallic Twist Candles </p>
+                                <p class="product-price"><del>Rs. 50.00</del> Rs. 25.00</p> 
+
+            </div>
+            
+        </div>
+    </div>
+
+     <main class="arrivals-section">
+        <h1>Shop Now</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                
+                <img src="https://ebakeonline.com/cdn/shop/files/WOODEN_FORK_SPOON_8.jpg?v=1760682427&width=720" alt="">
+
+                <p class="product-name">Medium Disposable Wooden Fork Biodegradable (Pack of 100)- 14cm</p>
+                <p class="product-price">Rs. 80.00</p>
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/LARGE.jpg?v=1760676154&width=720" alt="">
+                <p class="product-name">Large Disposable Wooden Spoon Biodegradable (Pack of 100)- 15.8cm</p>
+                                                <p class="product-price"><del>Rs. 110.00</del> Rs. 99.00</p> 
+                                <button> Add to cart </button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/MEDIUM_1.jpg?v=1760671174&width=720" alt="">
+                <p class="product-name">Medium Disposable Wooden Spoon Biodegradable (Pack of 100)- 13.8cm</p>
+                                                <p class="product-price"><del>Rs. 95.00</del> Rs. 80.00</p> 
+                                <button> Add to cart </button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/MEDIUM_1.jpg?v=1760671174&width=720" alt="">
+                <p class="product-name">Small Disposable Wooden Spoon Biodegradable (Pack of 100)- 10.6cm</p>
+                                                <p class="product-price"><del>Rs. 85.00</del> Rs. 76.00</p> 
+                                <button> Add to cart </button>
+            </div>
+            </div>
+            </main>
+
+<div class="view-all-button-container">
+        <button class="view-all-button">View all</button>
+    </div>
+
+
+
+     <main class="arrivals-section">
+        <h1>Faux Balls SALE</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/CAKE_TOP_012_SET_GOLD__01-01.jpg?v=1683617411&width=720" alt=""height="150" width="175">
+
+                <p class="product-name">Golden Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 69.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/CAKE_TOP_012_SET_SILV_D01_grande.progressive_a9184e25-12aa-4540-935c-740d3e6f59b7.jpg?v=1668603692" alt=""height="150" width="175">
+                <p class="product-name">Silver Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 69.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/71tdYTfWLlL._AC_SL1500.jpg?v=1736925941&width=720" alt=""height="150" width="175">
+                <p class="product-name">Black Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 69.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/612mhhgkO_L._AC_SL1500.jpg?v=1669979972&width=720" alt=""height="150" width="175">
+                <p class="product-name">White Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 69.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/61GMeQyyOwL._AC_SL1500.jpg?v=1668426730&width=720" alt=""height="150" width="175">
+                <p class="product-name">pastel Blue Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 85.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/products/61k2BdUrBeL._AC_SL1500.jpg?v=1714496622&width=720" alt="" height="150" width="175">
+                <p class="product-name">pastel pink Faux Balls - Set Of 20 Pieces</p>
+                 <p class="product-price"><del>Rs. 120.00</del> Rs. 69.00</p> 
+                                <button> Add to cart </button>
+
+            </div>
+            </div>
+            </main>
+
+<div class="view-all-button-container">
+        <button class="view-all-button">View all</button>
+    </div>
+
+
+     <main class="arrivals-section">
+        <h1> Shop The Essentials</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/IMG_20211110_131455_486.jpg?v=1734432812" alt="" height="250" width="250">
+                <p> Paper Butterflies </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/download_91.jpg?v=1720779496&width=535" alt="" height="250" width="250">
+                <p> Brownie Box </p>
+            </div>
+
+            <div class="product-card">
+                <img src="	https://ebakeonline.com/cdn/shop/collections/Birthday.jpg?v=1714215636&width=535" alt="" height="250" width="250">
+                <p> Birthday Toppers </p>
+            </div>
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_570xN.2935503657_3k65.jpg?v=1714215913&width=535" alt=""height="250" width="250">
+                <p> Acrylic sets & cutouts </p>
+            </div>
+              <div class="product-card">
+                <img src="//ebakeonline.com/cdn/shop/collections/Snapinsta.app_468160345_18035003879343413_6091464752781938235_n_1080_d876df62-51b6-4726-b006-ea6e43eaed1b.jpg?v=1734332142&width=1500" alt=""height="250" width="250">
+                <p> Acrylic Butterflies </p>
+            </div>
+             
+                </div>
+                </main>
+        
+ <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221021_123938-01.jpg?v=1732100257&width=535" alt="" height="250" width="250">
+                <p> Rose</p> </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/bento_box_1.jpg?v=1751623135&width=535" alt="" height="250" width="250">
+                <p>Bento Box,Acrylic Tubs & Mousse Cups</p> </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.3422599136_5ccr.jpg?v=1693990560&width=535" alt="" height="250" width="250">
+                <p>Bunny Tails </p> </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Snapinsta.app_329386722_240219621824553_5618121892035014664_n_1080.jpg?v=1714216500" alt="" height="250" width="250">
+                <p> Cartoon & Theme Toppers</p> </p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/download_9_aa9c4850-6d62-4691-af8e-635b2ac709ea.jpg?v=1734417411&width=535" alt="" height="250" width="250">
+                <p> Crown</p> </p>
+            </div>
+ </div>
+
+ <div class="view-all-button-container">
+        <button class="view-all-button">View all</button>
+    </div>
+
+
+     <main class="arrivals-section">
+        <h1> Cake Toppers</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="	https://ebakeonline.com/cdn/shop/collections/Birthday.jpg?v=1714215636&width=535" alt="" height="175" width="175">
+                <p> Birthday Toppers </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/103.jpg?v=1667833790&width=535" alt=""height="175" width="175">
+                <p> Anniversary </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.1735262407_pk6b.jpg?v=1667833487&width=535" alt=""height="175" width="175">
+                <p> Engagement & Wedding </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.1862940513_91ob.jpg?v=1667833285&width=535" alt=""height="175" width="175">
+                <p> Baby Birthday & Baby Shower</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_570xN.2935503657_3k65.jpg?v=1714215913&width=535" alt=""height="175" width="175">
+                <p> Acrylic Sets & Cutouts</p>
+            </div>
+
+              <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/WhatsApp_Image_2024-04-17_at_2.52.49_PM.jpg?v=1714215864&width=535" alt="" height="175" width="175">
+                <p> Coin Toppers</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Snapinsta.app_329386722_240219621824553_5618121892035014664_n_1080.jpg?v=1714216500" alt="" height="175" width="175">
+                <p> Cartoon & Theme Toppers</p> </p>
+            </div>
+              
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/WhatsApp_Image_2022-09-17_at_12.53.39_PM.jpg?v=1667889900&width=535" alt="" height="175" width="175">
+                <p> Mini Toppers</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/unnamed_0d5d83ca-4135-4209-9dbb-54c6cdcf7024.webp?v=1714215947&width=535" alt=""height="175" width="175">
+                <p> Dad & Mom </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/unnamed_6134eeba-3e43-4ab7-bbce-8343739adf1a.webp?v=1734434153&width=535" alt=""height="175" width="175">
+                <p> Religious Toppers</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/CT082.webp?v=1714813990" alt=""height="175" width="175">
+                <p> Number Toppers</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/f183573c6bd00628d30aad94c555e084.jpg?v=1734414195&width=535" alt=""height="175" width="175">
+                <p> Rainbow Toppers</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.5720093993_5yti.webp?v=1734414279&width=535" alt=""height="175" width="175">
+                <p>Glitter & Foam Toppers</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/6160D077-0297-4531-928A-B609D1D260DC.png?v=1727058893&width=535" alt=""height="175" width="175">
+                <p>Double Colour Toppers & L Shaped Toppers</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/IMG-20230223-WA0026.webp?v=1734414366" alt=""height="175" width="175">
+                <p>Other Toppers</p>
+            </div>
+            </div>
+            </main>
+
+
+
+     <main class="arrivals-section">
+        <h1> Artificial Flowers</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221021_123938-01.jpg?v=1732100257&width=535" alt="" height="175" width="175">
+                <p> Rose</p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221028_152317-01.jpg?v=1732099415&width=535" alt="" height="175" width="175">
+                <p> Peony </p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Bouquet_Of_Pink_Dahlias__by_Stocksy_Contributor__Ali_Harper.jpg?v=1734338305&width=535" alt=""height="175" width="175">
+                <p> Dahlia</p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/IMG-20230401-WA0046.jpg?v=1734338051&width=535" alt=""height="175" width="175">
+                <p> Flower Bunch </p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Fall_Wedding_Cakes_That_WOW_Guide_for_2022___Wedding_Forward.jpg?v=1683267378&width=535" alt=""height="175" width="175">
+                <p> Golden leaves </p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/download_d9288f77-9aa3-403f-a7f6-df45b67c09f4.jpg?v=1734413407&width=535" alt=""height="175" width="175">
+                <p>Eucalyptus</p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Tea_Leaf_Fake_Plants_Set_for_DIY_Wedding_Christmas_Home_Decor.jpg?v=1734339146&width=535" alt=""height="175" width="175">
+                <p> Flower Fillers (Leaves)</p> 
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20231006-110237_0000.png?v=1734339015&width=535" alt=""height="175" width="175">
+                <p>Pollen</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/5.jpg?v=1734338664" alt=""height="175" width="175">
+                <p>Scented Rose</p> 
+            </div>
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221020_134345-01.jpg?v=1734413557&width=535" alt=""height="175" width="175">
+                <p>Sunflower</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/c5747956-e64b-463f-aa21-3a1fc5686080.af6d5e9dacff8205d59a879d289a9924.webp?v=1734413824&width=535" alt=""height="175" width="175">
+                <p>Hygrangea</p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/200b2b2b-1dd8-4235-9539-3b8d8c51e504.5374043e81b2edb74516945de5ed9dc0.webp?v=1710998094&width=535" alt=""height="175" width="175">
+                <p>Gerbera Daisy</p>
+            </div>
+
+            </div>
+        </main>
+
+
+        
+     <main class="arrivals-section">
+        <h1> Butterflies </h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/IMG_20211110_131455_486.jpg?v=1734432812" alt="" height="250" width="250">
+                <p> Paper Butterflies </p>
+            </div>
+
+             <div class="product-card">
+                <img src="//ebakeonline.com/cdn/shop/collections/Snapinsta.app_468160345_18035003879343413_6091464752781938235_n_1080_d876df62-51b6-4726-b006-ea6e43eaed1b.jpg?v=1734332142&width=1500" alt=""height="250" width="250">
+                <p> Acrylic Butterflies </p>
+            </div>
+
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/633b604a8525d9140e643634-georld-edible-wafer-paper-butterflies_f8921891-5d24-4b4a-9d5f-349645352555.jpg?v=1734417097&width=535" alt=""height="250" width="250">
+                <p> Edible Butterflies </p>
+            </div>
+            
+             <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.1308586653_89ar.jpg?v=1734332164&width=535" alt=""height="250" width="250">
+                <p> Layered Fabrics Butterflies </p>
+            </div>
+            </div>
+            </main>
+
+            <main class="arrivals-section">
+        <h1> Edible Cake Decoration </h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221027_152807-01.jpg?v=1734503724&width=535" alt="">
+                <p> Sprinkles & Sugar Balls </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/633b604a8525d9140e643634-georld-edible-wafer-paper-butterflies.jpg?v=1734417063&width=535" alt="">
+                <p> Edible Toppers  </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Pastel-Rainbow-Cupcakes-WEB_-_Copy.jpg?v=1672984833&width=535" alt="">
+                <p> Gel colors & Edible Paint</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/8187c847dfdb2aed43cff16e85caebd5_clcquo.jpg?v=1734434797&width=535" alt="">
+                <p> Drips & Luster Dust  </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Collection_cover_photo_1.png?v=1734504478&width=535" alt="">
+                <p> Miscellaneous Edible Products  </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/8_750x_ebe70d81-b03d-458c-a9fa-645cf65ca66e.webp?v=1735542029&width=535" alt="">
+                <p> Sugar Paste / Fondant</p>
+            </div>
+        </div>
+            </main>
+
+             <main class="arrivals-section">
+        <h1> Other Categories</h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/4.jpg?v=1750257729&width=535" alt="" height="175" width="175">
+                <p> Knife </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/38fa0afdf05ad305c30f81b438468712.jpg?v=1735542585&width=750" alt=""height="175" width="175">
+                <p> Candles</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/download_9_aa9c4850-6d62-4691-af8e-635b2ac709ea.jpg?v=1734417411&width=535" alt=""height="175" width="175">
+                <p> Crown</p>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/15_d6b47075-49a6-479a-bd5c-2868f021d970.png?v=1707551652&width=535" alt=""height="175" width="175">
+                <p> Cake Spacers </p>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Ribbon.png?v=1734417118&width=535" alt=""height="175" width="175">
+                <p> Ribbons </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/712EE-ATIQL._SL1118.jpg?v=1713810573&width=535" alt=""height="175" width="175">
+                <p> Party Decoration</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Shopify_Collection_Image.png?v=1750755277&width=535" alt=""height="175" width="175">
+                <p> Silicon Moulds & Fondant Cutters</p>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Copy_of_Freedom_Sale_2023_1.png?v=1734417027&width=535" alt=""height="175" width="175">
+                <p> Other Cake Decoration Products </p>
+            </div>
+            </div>
+            </main>
+
+
+              <main class="arrivals-section">
+        <h1> Dried Flowers & Grass </h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/il_794xN.3422599136_5ccr.jpg?v=1693990560&width=535" alt=""height="200" width="200">
+                <p> Bunny Tails</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20210820_130945.jpg?v=1667831260&width=535" alt=""height="200" width="200">
+                <p> Palm Leaves </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20221027_131831-01.jpg?v=1667830744&width=535" alt=""height="200" width="200">
+                <p> Wheat Blooms</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/Ruscus.png?v=1735903679&width=535" alt=""height="200" width="200">
+                <p>Italian Ruscus & Eucalyptus</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/files/20230522_165833-01.jpg?v=1684758795&width=535" alt=""height="200" width="200">
+                <p> Pampas & Babala</p>
+            </div>
+            </div>
+            </main>
+
+             <main class="arrivals-section">
+        <h1> Boxes , Muffin Cups , Bake & Serve </h1>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/shopping_1.webp?v=1750070313&width=535" alt=""height="175" width="175">
+                <p> Bake n Serve </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/bento_box_1.jpg?v=1751623135&width=535" alt=""height="175" width="175">
+                <p> Bento Box,Acrylic Tubs & Mousse Cups </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/download_91.jpg?v=1720779496&width=535" alt=""height="175" width="175">
+                <p> Brownie Box  </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/s-l1600_12.jpg?v=1701509997&width=535" alt=""height="175" width="175">
+                <p> LoafCake Mold </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/Untitled_design_49.png?v=1750070483&width=535" alt=""height="175" width="175">
+                <p> Hamper Box & PVC Bags </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/images_ac688d5f-2977-4829-b260-01322e796457.jpg?v=1731915975&width=535" alt=""height="175" width="175">
+                <p> Plum Cake Mould </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/image.jpg?v=1708066133&width=535" alt=""height="175" width="175">
+                <p> Cake Base/Board & Pastry Base </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/20211012_161841.jpg?v=1695809218&width=535" alt=""height="175" width="175">
+                <p> Chocolate Box & Wrappers </p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://ebakeonline.com/cdn/shop/collections/IMG_0039-14_1.jpg?v=1744346298&width=535" alt=""height="175" width="175">
+                <p> Hamper Trays & Baskets  </p>
+            </div>
+        </div>
+    </main>
+
+    <section class="testimonials-section">
+        <div class="header">
+            <h2>Let customers speak for us</h2>
+            <div class="rating-summary">
+                <span class="stars-main">★★★★★</span>
+                <p>from 48 reviews </p>
+            </div>
+        </div>
+
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars-review">★★★★★</div>
+                <h3 class="review-title">Nice color</h3>
+                <p class="review-text">It's exactly as shown in the pic ...with good quality n color</p>
+                <p class="reviewer-name">Pooja Mahesh</p>
+                <div class="reviewer-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0671/9946/7836/files/Goldenlinedrolledrimredmuffincup_70x70.png?v=1736003472" alt="">
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars-review">★★★★★</div>
+                <h3 class="review-title">Good Quality</h3>
+                <p class="review-text">It's perfect for any type of Cakes; especially for Bento Cakes and Half kg cakes. It gives an...</p>
+                <p class="reviewer-name">Bakes By Retty</p>
+                <div class="reviewer-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0671/9946/7836/products/unnamed_01494685-2330-4ecb-8233-236bd098c714_70x70.webp?v=1669124863" alt="">
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars-review">★★★★★</div>
+                <h3 class="review-title">Great quality</h3>
+                <p class="review-text">Ordered approx 150pcs and all of then are of great quality n finish, shipping is also fast.</p>
+                <p class="reviewer-name">Arman Arora</p>
+                <div class="reviewer-image">
+                    <img src="https://cdn.shopify.com/s/files/1/0671/9946/7836/files/20230927-171908-01_70x70.jpg?v=1695899688" alt="">
+                </div>
+            </div>
+        </div>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column quick-links">
+                <h3 class="column-title">Quick links</h3>
+                <ul>
+                    <li><a href="#">Track Your Order</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Cancellation Policy</a></li>
+                    <li><a href="#">Return & Refund Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column shipping-time">
+                <h3 class="column-title">Shipping Time</h3>
+                <p>Delivery time: 2 to 7 days after dispatch (2 to 3 more days extra for North East!)</p>
+            </div>
+
+            <div class="footer-column contact-us">
+                <h3 class="column-title">Contact Us</h3>
+                <p>Email: <a href="mailto:support@ebakeonline.com">support@ebakeonline.com</a></p>
+                <p>Phone: +91 77365 97438</p>
+                <p>Address: ARC Enterprises, Pallikunnu, Kannur - 4, Kerala, India</p>
+            </div>
+        </div>
+
+        <hr class="footer-separator">
+
+        <div class="footer-bottom">
+            <div class="subscription-section">
+                <h3 class="column-title">Subscribe to our emails</h3>
+                <form class="email-form">
+                    <input type="email" placeholder="Email" aria-label="Enter your email address">
+                    <button type="submit" aria-label="Subscribe">
+                        &rarr; 
+                    </button>
+                </form>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><span class="icon">f</span></a>
+                <a href="#" aria-label="Pinterest"><span class="icon">P</span></a>
+                <a href="#" aria-label="Instagram"><span class="icon">i</span></a>
+                <a href="#" aria-label="YouTube"><span class="icon">▶</span></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

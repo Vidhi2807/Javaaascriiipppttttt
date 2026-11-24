@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f6f7fb;
+}
+
+/* Navbar */
+.navbar {
+    height: 70px;
+    background: #e80505;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.searchBox input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    width: 220px;
+}
+
+.searchBox button {
+    padding: 10px 20px;
+    margin-left: 8px;
+    border: none;
+    background: #00A8FF;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.searchBox button:hover {
+    background: #0088cc;
+}
+
+/* News Cards */
+.news {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    width: 480px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(236, 4, 4, 0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.card h3 {
+    margin-top: 10px;
+    color: #222;
+}
+
+.card p {
+    margin-top: 8px;
+    color: #555;
+}
+
+.card small {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #777;
+}
+
+
+.footer {
+  background: #0b0b0b;
+  color: #ddd;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  width: 30%;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-section h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.social-icons a {
+  color: #ccc;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #e60a0a;
+  margin-top: 20px;
+  color: #aaa;
+}
+
+
+.page-section {
+    width: 70%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.page-img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.page-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fa0505;
+    line-height: 28px;
+}
+

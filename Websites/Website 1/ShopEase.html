@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase</title>
+  <link rel="stylesheet" href="bigbasket.css">
+  
+                     
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+    
+    top: 0;
+    left: 0;
+    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #fff;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #124191;
+}
+
+.logo .highlight {
+  color: #f36c21;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 25px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #f36c21;
+}
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.content {
+  max-width: 550px;
+}
+
+.content h1 {
+  font-size: 42px;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.store-buttons img {
+  width: 180px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+
+.image {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  background-color: #0e4b80;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.image img {
+  width: 50;
+  border-radius: 20px;
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+        }
+
+        .app-features-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .content-layout {
+            display: flex;
+            align-items: flex-start; 
+        }
+
+        
+        .phone-mockup {
+            flex: 0 0 auto; 
+            width: 300px; 
+            padding-top: 50px; 
+            position: relative;
+        }
+
+        .iphone-frame {
+            width: 100%;
+            height: 600px; 
+            background: black;
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .screen {
+            background: #ffffff;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #1a73e8; 
+        }
+        
+        .features-grid {
+            flex: 1; 
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 40px 60px; 
+            text-align: left; 
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+        }
+
+        .feature-image-placeholder {
+            height: 120px; 
+            margin-bottom: 15px;
+            /* Placeholder for the illustration */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .image-description {
+            display: flex;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.9em;
+            background-color: #f7f7f7;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .feature-description {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 992px) {
+            .content-layout {
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .phone-mockup {
+                width: 250px;
+                height: auto;
+                margin-bottom: 40px;
+                padding-top: 0;
+            }
+
+            .iphone-frame {
+                height: 500px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr; 
+                gap: 30px;
+                text-align: center;
+                width: 100%;
+                max-width: 450px; 
+            }
+
+            .feature-item {
+                align-items: center; 
+            }
+
+            .feature-image-placeholder {
+                justify-content: center;
+            }
+        }
+
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f8f8f8; 
+            color: #333;
+            line-height: 1.6;
+            text-align: center; 
+        }
+
+        .get-started-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: left; 
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            text-align: center; 
+        }
+
+        .content-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start; 
+        }
+
+       
+        .phone-mockup {
+            flex: 0 0 320px; 
+            position: relative;
+            box-sizing: border-box; 
+        }
+
+        .phone-frame {
+            width: 100%;
+            padding-bottom: 200%; 
+            background: #000;
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .phone-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden; 
+        }
+
+        .phone-top-bar {
+            height: 20px;
+            background-color: #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            color: #fff;
+            font-size: 0.7em;
+        }
+
+        .phone-app-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .phone-app-header .back-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #555;
+        }
+        .phone-app-header .header-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .phone-content {
+            padding: 15px;
+            color: #555;
+            font-size: 0.9em;
+            height: calc(100% - 100px); 
+            overflow-y: auto; 
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .item-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .item-row img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            margin-right: 10px;
+            object-fit: cover;
+            background-color: #eee; 
+        }
+        .item-row .item-info {
+            flex-grow: 1;
+        }
+        .item-row .item-name {
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 3px;
+        }
+        .item-row .item-price {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+
+        .save-button {
+            width: calc(100% - 30px); 
+            padding: 12px 20px;
+            background-color: #ff6f00; 
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px; 
+            position: absolute; 
+            bottom: 70px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .phone-bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #222;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #aaa;
+            font-size: 1.2em; /* Icon size */
+            z-index: 10;
+        }
+        .phone-bottom-nav .nav-icon {
+            cursor: pointer;
+        }
+        .phone-bottom-nav .nav-icon.active {
+            color: #fff;
+        }
+
+
+        /* --- Instructions and Socials Styles --- */
+        .instructions-socials {
+            flex: 1; /* Take up remaining space */
+        }
+
+        .instruction-step {
+            margin-bottom: 30px;
+        }
+
+        .instruction-step strong {
+            display: block;
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .instruction-step ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .instruction-step ul li {
+            margin-bottom: 8px;
+            padding-left: 25px; /* Space for custom bullet */
+            position: relative;
+        }
+
+        .instruction-step ul li::before {
+            content: '-'; /* Custom bullet point */
+            color: #696868; /* Orange bullet */
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .info-text {
+            margin-top: 40px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .faq-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1a73e8; /* Blue link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .faq-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+          border: 2px solid black;
+            margin-top: 40px;
+            text-align: center; /* Center the social icons */
+        }
+
+        .social-links p {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .social-icon {
+          display: flex
+;
+    justify-content: center;
+    align-items: center;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee; /* Light gray background */
+            color: #555; /* Default icon color */
+            font-size: 1.5em;
+            margin: 0 8px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .social-icon:hover {
+            background-color: #ddd;
+        }
+        /* Specific colors for branding if desired */
+        .social-icon.facebook { background-color: #1877f2; color: #ffffff; }
+        .social-icon.instagram { background-color: #ffffff; color:#1877f2; }
+      
+        .social-icon.linkedin { background-color: #1877f2; color: white; }
+        .social-icon.youtube { background-color: #1877f2; color: white; }
+
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 992px) {
+            .content-container {
+                flex-direction: column; /* Stack phone and instructions vertically */
+                align-items: center; /* Center items when stacked */
+                gap: 50px;
+            }
+
+            .phone-mockup {
+                width: 280px; /* Slightly smaller phone on tablets */
+                padding-top: 0; /* Remove top padding */
+            }
+
+            .get-started-section {
+                padding: 30px 15px;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .instructions-socials {
+                width: 100%;
+                max-width: 550px; /* Constrain width for better readability */
+            }
+
+            .instruction-step strong {
+                text-align: center; /* Center step titles on small screens */
+            }
+            .instruction-step ul {
+                padding-left: 20px; /* Add some padding back for li */
+            }
+            .instruction-step ul li {
+                padding-left: 0;
+            }
+            .instruction-step ul li::before {
+                left: -15px; /* Adjust bullet position */
+            }
+
+            .social-links {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .phone-mockup {
+                width: 250px; /* Even smaller phone on mobile */
+            }
+            .iphone-frame {
+                height: 500px; /* Adjust frame height if needed */
+            }
+        }
+
+        /* --- General Container and Typography --- */
+.community-contributions {
+    text-align: center; /* Center the main heading */
+    padding: 40px 20px; /* Add some space around the section */
+    max-width: 1200px; /* Limit max width for better reading */
+    margin: 0 auto; /* Center the container on the page */
+}
+
+.community-contributions h2 {
+    font-size: 2.2rem;
+    color: #333; /* Darker text for the main heading */
+    margin-bottom: 50px;
+    font-weight: 500; /* Medium weight */
+}
+
+/* --- Grid Layout with Flexbox --- */
+.contributions-grid {
+    display: flex;
+    justify-content: space-between; /* Space out the columns evenly */
+    gap: 30px; /* Space between the columns */
+}
+
+/* --- Individual Feature Item Styling --- */
+.contribution-item {
+    flex: 1; /* Allows the items to grow and take equal space */
+    max-width: 250px; /* Set a max width for each item */
+    text-align: center;
+}
+
+.contribution-item h3 {
+    font-size: 1.35rem;
+    color: #333; /* Darker text for feature titles */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: 600; /* Slightly bolder */
+}
+
+.contribution-item p {
+    font-size: 1rem;
+    color: #666; /* Lighter text for the description */
+    line-height: 1.5;
+}
+
+
+
+@media (max-width: 900px) {
+    .contributions-grid {
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+    
+    .contribution-item {
+        flex: 0 0 45%;
+        margin-bottom: 30px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .contribution-item {
+        flex: 0 0 100%; 
+    }
+}
+
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .download-banner {
+            background-color: #e04e1b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .download-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .store-buttons a {
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .store-buttons a:hover {
+            opacity: 0.8;
+        }
+
+        .store-button-img {
+            height: 45px; 
+            width: auto;
+        }
+
+        .site-footer {
+            background-color: #000000; 
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px 20px;
+            font-size: 0.9em;
+        }
+
+        .copyright {
+            color: #cccccc; 
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e04e1b;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ffffff; 
+            color: #ffffff;
+            font-size: 1.1em;
+            margin: 0 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #e04e1b;
+            border-color: #e04e1b;
+        }
+        
+        .social-icon.blue {
+            background-color: #1877f2; 
+            border-color: #1877f2;
+        }
+        .social-icon.blue:hover {
+            background-color: #e04e1b;
+            border-color: #e04e1b;
+        }
+
+
+        @media (max-width: 600px) {
+            .download-banner {
+                padding: 40px 20px;
+            }
+            .download-title {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .store-buttons {
+                flex-direction: column; 
+                align-items: center;
+                gap: 15px;
+            }
+            .store-button-img {
+                height: 40px;
+            }
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="logo">Shop<span class="highlight">e</span>ase</div>
+    <nav>
+      <a href="#">User Guide</a>
+      <a href="#">Download</a>
+      <a href="#">FAQ</a>
+      <a href="#">Email Us</a>
+    </nav>
+  </header>
+
+  
+  <section class="hero">
+    <div class="content">
+      <h1>What's ShopEase?</h1>
+      <p>
+        ShopEase simplifies organizing shopping lists with real-time sharing, 
+        inventory tracking, and receipt attachments.
+      </p>
+      <div class="store-buttons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+      </div>
+    </div>
+
+    <div class="image">
+      <div class="circle"></div>
+      <img src="mobile.png" alt="Phone Mockup" > 
+    </div>
+  </section>
+
+  <section class="hero">
+    <h2>"A smart solution to everyday shopping, seamlessly integrated into one app!"</h2>
+  </section>
+    
+    <section class="app-features-section">
+        <h2 class="section-title">Top Features of Our App</h2>
+        
+        <div class="content-layout">
+            
+            <div class="phone-mockup">
+                <div class="iphone-frame">
+                    <div class="screen">
+                        Shop&amp;ease
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                        <span class="image-description"><img src="img1.png" alt="" height="150" width="150"></span>
+                    </div>
+                    <h3 class="feature-title">Track home inventory</h3>
+                    <p class="feature-description">
+                        Keep an organized record of your household items and monitor stock levels with ease.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                         <span class="image-description">
+                    <img src="https://www.shopeaseapp.com/assets/img/Splash2.svg" alt=""height="150" width="150">
+                         </span>
+                    </div>
+                    <h3 class="feature-title">Easily create shopping list</h3>
+                    <p class="feature-description">
+                        Quickly add and manage your shopping items with images for an efficient trip.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                         <span class="image-description">
+                          <img src="https://www.shopeaseapp.com/assets/img/Splash1.svg" alt="" height="150" width="150">
+                         </span>
+                    </div>
+                    <h3 class="feature-title">Scan your receipts easily</h3>
+                    <p class="feature-description">
+                        Capture and store your receipts with just a snap for easy reference.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                         <span class="image-description">
+                          <img src="https://www.shopeaseapp.com/assets/img/Splash3.svg" alt="" height="150" width="150">
+                         </span>
+                    </div>
+                    <h3 class="feature-title">Collaborate with friends/family</h3>
+                    <p class="feature-description">
+                        Share and manage shopping lists with your friends/family in real-time.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="get-started-section">
+        <h2 class="section-title">Get started with ShopEase</h2>
+        
+        <div class="content-container">
+            
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-inner">
+                        <div class="phone-top-bar">
+                            <span>9:41</span>
+                            <span>📶 🔋</span>
+                        </div>
+                        <div class="phone-app-header">
+                            <span class="back-icon">&lt;</span>
+                            <span class="header-title">Scan & Edit Invoice</span>
+                        </div>
+                        <div class="phone-content">
+                            <div class="item-row">
+                                <img src="https://via.placeholder.com/50/f0f0f0?text=Item" alt="Product Image">
+                                <div class="item-info">
+                                    <div class="item-name">Product Name</div>
+                                    <div class="item-price">Qty: 1</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Enter Amount</label>
+                                <input type="text" id="amount" value="$112" readonly>
+                            </div>
+                            </div>
+                        <button class="save-button">Save</button>
+                        <div class="phone-bottom-nav">
+                            <span class="nav-icon active">☰</span>
+                            <span class="nav-icon">🛒</span>
+                            <span class="nav-icon">🔔</span>
+                            <span class="nav-icon">👤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions-socials">
+                <div class="instruction-step">
+                    <strong>Step 1: Sign up with your mobile number</strong>
+                    <ul>
+                        <li>Download & install the app from Play Store or App Store.</li>
+                        <li>Provide your mobile number.</li>
+                        <li>Enter the OTP to successfully sign in to the app.</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-step">
+                    <strong>Step 2: Create the shopping list</strong>
+                    <ul>
+                        <li>Navigate to the checklist.</li>
+                        <li>Add items using the scan option or the add option.</li>
+                        <li>Link the items to a specific shop.</li>
+                        <li>Check off the items as you purchase them.</li>
+                        <li>Complete your shopping.</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-step">
+                    <strong>Step 3: Upload the receipt</strong>
+                    <ul>
+                        <li>Upload the receipt when the purchase is completed or do it later from the history.</li>
+                        <li>Click on the receipt image placeholder.</li>
+                        <li>Upload from the gallery or take a picture.</li>
+                        <li>Successfully attach the invoice.</li>
+                    </ul>
+                </div>
+
+                <p class="info-text">
+                    All items are updated to your inventory list, ensuring your stock is replenished after completing the purchase.
+                </p>
+
+                <p>For more details - <a href="#" class="faq-link">FAQ</a></p>
+
+                <div class="social-links">
+                    <p>Follow us on</p>
+                    <div>
+                        <a href="#" class="social-icon facebook">f</a> 
+                        <a href="#" class="social-icon facebook"><img src="data:image/jpeg;base64,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" alt="" height="50" width="50"></a> 
+                      </a> <a href="#" class="social-icon linkedin">in</a> 
+                      <a href="#" class="social-icon youtube">▶</a> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-contributions">
+    <h2>How we contribute to the community?</h2>
+    
+    <div class="contributions-grid">
+        
+        <div class="contribution-item">
+            <div class="image-placeholder food-waste-img">
+                </div>
+                <img src="https://www.shopeaseapp.com/assets/img/waste.svg" alt="" height="150" width="150">
+             
+            <h3>Food Waste Control</h3>
+            <p>ShopEase helps reduce food waste by ensuring you buy only what you need.</p>
+        </div>
+        
+        <div class="contribution-item">
+            <div class="image-placeholder budget-control-img">
+                </div>
+                   <img src="https://www.shopeaseapp.com/assets/img/budget.svg" alt="" height="150" width="150">
+            <h3>Budget Control</h3>
+            <p>ShopEase aids in managing your grocery budget by keeping a record of your purchases with the help of receipts.</p>
+        </div>
+        
+        <div class="contribution-item">
+            <div class="image-placeholder recycle-reuse-img">
+                </div>
+                <img src="https://www.shopeaseapp.com/assets/img/recycle.svg" alt="" height="150" width="150">
+            <h3>Recycle and Reuse</h3>
+            <p>Tracking home inventory and receipts in one place helps in recycling, donating, and reselling easily.</p>
+        </div>
+        
+        <div class="contribution-item">
+            <div class="image-placeholder carbon-footprint-img">
+                </div>
+                <img src="https://www.shopeaseapp.com/assets/img/carbon.svg" alt="" height="150" width="150">
+            <h3>Reduce Carbon Footprint</h3>
+            <p>Minimizes the community's carbon footprint by reducing food waste and unnecessary trips to the store through effective list management.</p>
+        </div>
+        
+    </div>
+</section>
+
+
+     
+
+    <section class="download-banner">
+        <h1 class="download-title">Download ShopEase App for free now!</h1>
+        <div class="store-buttons">
+            <a href="#" target="_blank" aria-label="Get it on Google Play">
+                <img src="https://via.placeholder.com/150x45/000000/ffffff?text=Google+Play" alt="Google Play Store" class="store-button-img">
+            </a>
+            <a href="#" target="_blank" aria-label="Download on the App Store">
+                 <img src="https://via.placeholder.com/150x45/000000/ffffff?text=App+Store" alt="Apple App Store" class="store-button-img">
+            </a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p class="copyright">© ShopEaseApp 2024. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <span>•</span>
+            <a href="#">Terms</a>
+            <span>•</span>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook">f</a>
+            <a href="#" class="social-icon" aria-label="Instagram">📸</a>
+            <a href="#" class="social-icon blue" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-icon blue" aria-label="YouTube">▶</a>
+        </div>
+    </footer>
+
+</body>
+</html>
